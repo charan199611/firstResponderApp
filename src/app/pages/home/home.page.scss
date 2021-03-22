@@ -1,0 +1,102 @@
+   
+
+    .align-top-home-buttons{
+           position: absolute;
+        bottom: -22px;
+    right: 0px;
+    }
+     
+     @media screen and (min-width:400px){
+         .header-logo-text{
+             display: block !important;
+         }
+     }
+
+    @media screen and (max-height: 420px) {
+        .img-block {
+            width: 45px !important;
+            height: 45px !important;  //newly changed from  45 to 35 ,motorolla
+            line-height: 60px !important;
+        }
+
+        // .button-title{
+        //     margin-top: -10px !important;
+        // }
+    }
+    @media screen and (min-height: 360px) {
+        .img-block {
+            width: 80px;
+            height: 80px;
+            line-height: 78px;
+        }
+    }
+    .top-header-buttons {
+        font-size: 25px;
+        padding: 10px;
+    }
+    .padding1px {
+        padding: 1px;
+        border: 1px solid black;
+    }
+    .home-menu {
+        width: 100%;
+        margin: 0;
+        //height: calc(33.333vh - 29px); //changed from 33 to 29 for motorolla
+        height: 30vh;
+        // background: rgba(0, 0, 0, 0.4);
+    }
+    .home-menu:hover {
+        background: rgba(50, 50, 200, 0.4);
+    }
+    .img-block {
+        display: block;
+        text-align: center;
+        font-size: 25px;
+        border-radius: 80px;
+        margin: 0 auto;
+        transition: all 350ms ease;
+    }
+    .button-title {
+        margin-top: 8px;
+        display: block;
+        font-size: 2.5vw;
+        text-align: center;
+        font-style: normal;
+      
+    }
+    footer {
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        height: 28px; //changed fro 40 to 28 for motorolla
+        padding: 0.2em;
+        font-size: 1.5em;
+        background: rgba(0, 0, 0, 0.3);
+        color: #fff;
+    }
+    .scroll-content{
+    margin-top: 54px !important;
+}
+  .alert-md .alert-head{
+padding: 23px 20px 33px 23px !important;
+    text-align: left !important;
+}
+table, th, td {
+    border: 1px solid black;
+}
+
+.text-align{
+    text-align: center;
+}
+
+.notification-span{
+    position: absolute;
+     font-size: 20px;
+      background: red none repeat scroll 0% 0%;
+       width: 25px;
+        height: 25px; 
+        line-height: 25px; 
+        border-radius: 50%; 
+        top: 17%; 
+        left: 55%;
+}

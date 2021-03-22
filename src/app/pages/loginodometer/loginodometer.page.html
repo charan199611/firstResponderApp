@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    
+    <div slot="start" class="ion-title-img">
+      <img src="assets/img/logo/Logo-Cairo.png" alt="">
+    </div>
+    <ion-title>{{'Login odometer' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="card-md" style="background: rgba(0, 0, 0, 0.5);">
+
+    <ion-card-content>
+
+
+      <form (ngSubmit)="odometerFormSubmit()">
+        <ion-grid>
+
+
+          <ion-row>
+            <ion-col col-12 col-sm-6 col-md-6 col-lg-6>
+              <ion-label>{{'Last Closed Odometer Reading' | translate}} </ion-label>
+            </ion-col>
+            <ion-col col-12 col-sm-6 col-md-6 col-lg-6>
+              <ion-item>
+                <ion-input class="div_size" type="number" name="openReading" [(ngModel)]="odometer.previousValue"
+                  col="6" readonly></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+
+
+          <ion-row>
+            <ion-col col-12 col-sm-6 col-md-6 col-lg-6>
+              <ion-label>{{'Opening Meter Reading' | translate}}</ion-label>
+            </ion-col>
+            <ion-col col-12 col-sm-6 col-md-6 col-lg-6>
+              <ion-item>
+                <ion-input [(ngModel)]="odometer.startValue" type="number" name="closeReading"
+                  min="{{odometer.previousValue}}" placeholder="{{'Please Enter Current Odometer Reading' | translate}}"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+
+          <div *ngIf="errorMessage">
+            <p style="color: #FF0000; font-size: medium;">*{{errorMessage | translate}}</p>
+           </div>
+
+          <div style="margin-top:7%;margin-bottom: 0%">
+            <ion-row>
+              <ion-col col-12 col-sm-12 col-md-12 col-lg-12>
+                <button ion-button type="submit" block large><span class="button-text">{{'Submit' | translate}}</span></button>
+              </ion-col>
+            </ion-row>
+          </div>
+        </ion-grid>
+      </form>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

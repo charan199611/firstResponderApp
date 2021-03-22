@@ -1,0 +1,20 @@
+
+
+  <ion-list class="list list-md" >
+    <button class="item item-block button item-md" ion-item *ngFor="let option of options" (click)="openPage(option.page)">
+      <div class="item-inner" >
+        <div class="input-wrapper" style="overflow-x: hidden;">
+        <ion-label class="label label-md">
+          <ion-icon class="popover-options-icon icon icon-md ion-md-walk item-icon" style="overflow-x: hidden;"   name="{{option.icon}}" ></ion-icon>
+          {{option.title | translate}}
+        </ion-label>
+      </div>
+        </div>   
+      </button>
+    </ion-list>
+    
+    
+    
+    
+    
+    

@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{'Status Configuration' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card style="border-radius: 20px;margin-top: 8px !important;margin: auto;">
+
+  
+    <!-- </ion-card-content> -->
+
+
+
+<ion-list>
+ 
+
+  <ion-item>
+      <ion-label>{{'Status' | translate}}</ion-label>
+
+      <ion-select  [(ngModel)]="currentstatus" okText="{{'Ok' | translate}}" cancelText="{{'CANCEL' | translate}}">
+      <ion-select-option value="">{{'Select' | translate}}</ion-select-option>
+      <ion-select-option *ngFor="let option of statusList" [value]='option.vehicle_status_id'>{{option.status | translate}}</ion-select-option>
+
+  </ion-select>
+   
+      <!-- <ion-select value="currentstatus" okText="Okay" cancelText="Dismiss">
+        <ion-select-option value="brown">Brown</ion-select-option>
+     
+      </ion-select> -->
+    </ion-item>
+
+  </ion-list>
+<div>
+  <ion-row style="margin-top: 20%;">
+    <ion-col cl-6 (click)="updateStatus()">
+      <ion-button expand="block" class="flio-bg" class="buttonColor">{{'Update' | translate}}</ion-button>
+    </ion-col>
+    <ion-col size="6" (click)="closeModal()">
+      <ion-button expand="block" class="buttonColor" >
+        {{'Close' | translate}}</ion-button>
+    </ion-col>
+    
+  </ion-row>
+</div>
+</ion-card>
+</ion-content>

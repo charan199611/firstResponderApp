@@ -1,0 +1,115 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{'Configurations' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating" class="color-black">{{'App Server Url' | translate}}</ion-label>
+        <ion-input [(ngModel)]="appServerBackendUrl" name="appServerBackendUrl" ngDefaultControl placeholder="App URL">
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating" class="color-black">{{'WorkForce Server Url' | translate}}</ion-label>
+        <ion-input [(ngModel)]="workForceServerBackendUrl" name="workForceServerBackendUrl" ngDefaultControl
+          placeholder="Workforce URL">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating" class="color-black">{{'File Upload Url' | translate}}</ion-label>
+        <ion-input [(ngModel)]="fileUploadUrl" name="fileUploadUrl" ngDefaultControl placeholder="File Upload Url">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating" class="color-black">{{'MQTT' | translate}}</ion-label>
+        <ion-input [(ngModel)]="mqttUrl" name="mqttUrl" ngDefaultControl placeholder="MQTT Url">
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating" class="color-black">{{'Mqtt Port' | translate}}</ion-label>
+        <ion-input [(ngModel)]="mqttport" name="mqttport" ngDefaultControl placeholder="Enter Mqtt Port" type="number">
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating" class="color-black">{{'Mqtt Username' | translate}}</ion-label>
+        <ion-input [(ngModel)]="mqttUsername" name="mqttUsername" ngDefaultControl placeholder="Enter Mqtt Username">
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating" class="color-black">{{'Mqtt Password' | translate}}</ion-label>
+        <ion-input [(ngModel)]="mqttPassword" name="mqttPassword" ngDefaultControl placeholder="Enter Mqtt Password">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating" class="color-black">{{'UUID' | translate}}</ion-label>
+        <ion-input [(ngModel)]="uuid" name="fileUploadUrl" ngDefaultControl placeholder="File Upload Url">
+        </ion-input>
+      </ion-item>
+
+      <ion-radio-group  (ionChange)="radioGroupLanguageChange($event)" [(ngModel)]="selectLanguage" >
+        <ion-list-header>
+          <ion-label>
+            {{'Language' | translate}}
+          </ion-label>
+        </ion-list-header>
+    
+        <ion-row>
+          <ion-col>
+        <ion-item >
+          <ion-radio value="en" [disabled]="disabledStatus"></ion-radio>
+          <ion-label style="padding-left:10%;">{{'English' | translate}}</ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+    
+        <ion-item>
+          <ion-radio value="arb" [disabled]="disabledStatus"></ion-radio>
+          <ion-label style="padding-left:10%;">{{'Arabic' | translate}}</ion-label>
+          
+        </ion-item>
+      </ion-col>
+      </ion-row>
+    
+        </ion-radio-group>
+
+
+        <ion-item>
+          <ion-label position="floating" class="color-black">{{'Tenant Code' | translate}}</ion-label>
+          <ion-input [(ngModel)]="selectedTenant" name="selectedTenant" ngDefaultControl placeholder="Enter Tenant Code">
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="color-black">{{'LiveStream Url' | translate}}</ion-label>
+          <ion-input [(ngModel)]="liveStreamUrl" name="liveStreamUrl" ngDefaultControl placeholder="Enter LiveStream Url">
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="color-black">{{'Interval' | translate}}</ion-label>
+          <ion-input [(ngModel)]="interval" name="interval" ngDefaultControl placeholder="Enter Interval" type="number">
+          </ion-input>
+        </ion-item>
+      <ion-item class="transparentItem item-no-lines" style="display: none;">
+
+        <ion-label position="floating" class="color-white">
+          <ion-icon name="analytics" class="color-white" item-start></ion-icon>{{"Select Tenant" | translate}}
+        </ion-label>
+        <ion-select [(ngModel)]="selectedTenant" (ionChange)="setTenant()" class="color-white">
+          <ion-select-option [value]="tenant.tenant_id" *ngFor="let tenant of tenantList" class="color-white">
+            {{tenant.tenant_name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+
+    </ion-list>
+    <ion-button expand="full" (click)="save()">{{'Save' | translate}}</ion-button>
+  </ion-card>
+
+</ion-content>

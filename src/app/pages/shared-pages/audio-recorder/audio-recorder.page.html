@@ -1,0 +1,42 @@
+<ion-content class="main-view">
+  <div class="model-content">
+      <div style="float: right;" (click)="dismiss()">
+          <img src="assets/parking/close.png" style="width: 3vh;height: 4vh;">
+      </div>
+      <div>
+          <img class="img-center" src={{changeImageOnStart}}>
+      </div>
+      <h1 class="text-center timer-style">{{ timeLeft }}</h1>
+  </div>
+
+  
+</ion-content>
+
+<ion-footer>
+  <div style="margin-top:1vh;">
+      <ion-row>
+          <ion-col>
+              <ion-button icon-left fill="clear" small ion-button full [disabled]="recording" (click)="startAudioRecord()" class="start">
+                  <ion-icon name="play" [style.color]="'#008000'"></ion-icon>
+                  <div>{{startResume}}</div>
+              </ion-button>
+          </ion-col>
+          <ion-col>
+              <ion-button icon-left fill="clear" small [disabled]="isAudioStarted" ion-button full
+                  (click)="stopAudioRecord()" class="stop">
+                  <ion-icon name="square" color="danger"></ion-icon>
+                  <div>{{"Stop"}}</div>
+              </ion-button>
+
+
+          </ion-col>
+          <ion-col>
+              <ion-button icon-left fill="clear" small [disabled]="isAudioStarted" ion-button full (click)="pauseAudio()"
+                  class="pause">
+                  <ion-icon name="pause" [style.color]="'#000000'"></ion-icon>
+                  <div>{{"Pause"}}</div>
+              </ion-button>
+          </ion-col>
+      </ion-row>
+  </div>
+</ion-footer>

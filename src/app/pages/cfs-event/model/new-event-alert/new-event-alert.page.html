@@ -1,0 +1,58 @@
+<div theme class="background-theme">
+  <ion-row class="header" class="flio-bg">
+
+    <ion-col size="12" class="modal-title">
+      <p style="font-size: 0.8em;text-align: center;">{{messageHeader | translate}}</p>
+    </ion-col>
+
+  </ion-row>
+
+  <!-- {fromDate: "2020-12-30", Id: "170058", messageType: "PATROL", message: "Accident"} -->
+
+
+  <div class="text-content">
+    <ion-row>
+      <ion-col size="2">
+        <img [src]="" class="dept-icon" />
+      </ion-col>
+      <ion-col size="10">
+        <p class="event-name" *ngIf="getMessageData() !== 'PATROL' && getMessageData() !== 'TASK'"><b>{{notificationData.eventtype}}</b></p>
+        <p class="event-name" *ngIf="getMessageData() !== 'PATROL' && getMessageData() !== 'TASK'">{{'Event ID' | translate}}:{{notificationData.eventid}}</p>
+        <p class="event-name" *ngIf="getMessageData() === 'PATROL' ||  getMessageData() === 'TASK'">{{'Message' | translate}}:{{notificationData.message}}</p>
+        <p class="event-name" *ngIf="getMessageData() === 'PATROL' ||  getMessageData() === 'TASK'">{{'From Date' | translate}}:{{notificationData.fromDate}}</p>
+      </ion-col>
+    </ion-row>
+    <!-- <ion-row>
+      <ion-col size="6">
+        <p class="title">Status:</p>
+        <p class="value"><span
+            [style.color]="getStatusColor(notificationData.acceptanceStatus)">{{getStatusText(notificationData.acceptanceStatus)}}</span>
+        </p>
+      </ion-col>
+      <ion-col size="6">
+        <p class="title">Priority:</p>
+        <p class="value"> <span class="dot"
+            [style.background-color]="getPriorityColor(notificationData.priority)"></span>
+          &nbsp; {{notificationData.priority}}
+        </p>
+      </ion-col>
+    </ion-row> -->
+  </div>
+
+
+  <ion-row>
+    <p class="text-center address">{{notificationData?.address}}</p>
+  </ion-row>
+  <div class="button-position div-width">
+    <ion-row>
+  
+      <ion-col cl-6 (click)="View()">
+        <ion-button expand="block" class="flio-bg">{{'View' | translate}}</ion-button>
+      </ion-col>
+      <ion-col size="6" (click)="closeModal()">
+        <ion-button expand="block" >
+          {{'Close' | translate}}</ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+</div>

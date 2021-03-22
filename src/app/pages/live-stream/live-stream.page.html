@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <div slot="start" class="ion-title-img">
+			<img src="assets/img/logo/Logo-Cairo.png" alt="">
+		  </div>
+    <ion-title>{{'Live stream' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="main-view">
+
+  <!-- <div style="height: 100%;">
+    <iframe id="inlineFrame" [src]="liveStreamUrl" alt="">
+    </iframe>
+  </div> -->
+
+  <div id="myVideo" style="height: 100%;">
+    <p> Your browser does not support the VIDEO tag and/or RTP streams.1</p>
+    <video src="rtsp://administrator:P@$$w0rd@10.100.0.40:10.100.0.40/v1/system/cameras/streaming/10/1/live_stream?auth_acc_type=LDAPUser;add_info=NULL">
+      Your browser does not support the VIDEO tag and/or RTP streams.
+    </video>
+    <p> Your browser does not support the VIDEO tag and/or RTP streams.2</p>
+  </div>
+  <p> Your browser does not support the VIDEO tag and/or RTP streams.3</p>
+  <video src="rtsp://administrator:P@$$w0rd@10.100.0.40:10.100.0.40/v1/system/cameras/streaming/10/1/live_stream?auth_acc_type=LDAPUser;add_info=NULL">
+    Your browser does not support the VIDEO tag and/or RTP streams.
+  </video>
+ 
+
+  <button ion-button full (click)=openLiveStream()>
+    <ion-icon ios="ios-eye" md="md-eye"></ion-icon> VIEW
+  </button>
+
+</ion-content>

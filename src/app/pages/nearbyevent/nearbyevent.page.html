@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <div slot="start" class="ion-title-img">
+			<img src="assets/img/logo/Logo-Cairo.png" alt="">
+		  </div>
+    <ion-title>{{'Near By Events' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+  <ion-col style="padding: 0; margin: 0;">
+    <table class="table table-type-1 table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>{{"S.No" | translate}}.</th>
+          <th>{{'CFS ID' | translate}}</th>
+          <th>{{'Event Type' | translate}}</th>
+          <!-- <th>{{'Status' | translate}}</th> -->
+          <th>{{'Distance' | translate}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="nearbyEvents.length === 0">
+          <td colspan="5" class="text-center">{{'No Events Found' | translate}}</td>
+        </tr>
+        <tr *ngFor="let events of nearbyEvents; let i = index">
+          <td class="text-center">{{i + 1}}</td>
+          <td class="text-center">{{events.eventno}}</td>
+          <td class="text-center">{{events.main_event_type}}</td>
+          <!-- <td class="text-center">{{events.status}}</td> -->
+          <td class="text-center">{{events.distance}} {{'kms' | translate}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </ion-col>
+</ion-content>

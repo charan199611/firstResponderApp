@@ -1,0 +1,44 @@
+page-location {
+
+    h3{
+            font-size: 2vw !important;
+            text-align: center;
+    }
+
+@media screen and(max-width: 480px){
+    .col-20{
+        width: 33.333%  !important;
+
+        min-width: 33.333%  !important;
+        max-width: 33.333%  !important;
+    }
+}
+    
+
+
+.card-md p{
+    margin: 0 0 2px;
+    font-size: 10px;
+    line-height: 1.5;
+}
+.undelinedText{
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 13px; //changed from 16 to 13 for mototrolla
+    font-weight: bold;   
+}
+    .col-20 {
+        width: 20%;
+    }
+    .header-title{
+		font-size: 20px !important;
+	}
+
+
+    .card-md{
+       background: transparent;
+       box-shadow: none;
+        border-radius: 19px;
+    }
+}

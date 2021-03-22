@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <div slot="start" class="ion-title-img">
+      <img src="assets/img/logo/Logo-Cairo.png" alt="">
+    </div>
+    <ion-title>{{'SOP Info' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-segment [(ngModel)]="showtype" (ionChange)="typeChanged()">  
+      <ion-segment-button value="INFO GATHERING">
+      <ion-label>{{'Info Gathering' | translate}}</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="BEHAVIOURAL">
+      <ion-label>{{'Behavioural' | translate}}</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="OPERATIONAL">
+      <ion-label>{{'Operational' | translate}}</ion-label>
+      </ion-segment-button>
+  </ion-segment>
+
+  <div [ngSwitch]="showtype">
+
+    <div *ngSwitchCase="'INFO GATHERING'">
+      <table class="table table-type-1 table-bordered table-striped" cellpadding="10">
+        <tbody>
+         
+          <tr>
+            <th>{{'S.No' | translate}}</th>
+            <th>{{'SOP Text' | translate}}</th>
+            
+         </tr>
+          <tr *ngFor="let data of infoGathering; let i=index">
+           <td>{{i+1}}</td>
+           <td>{{data.SOP_TEXT}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div *ngSwitchCase="'BEHAVIOURAL'">
+      <table class="table table-type-1 table-bordered table-striped" cellpadding="10">
+        <tbody>
+         
+          <tr>
+            <th>{{'S.No' | translate}}</th>
+            <th>{{'SOP Text' | translate}}</th>
+            
+         </tr>
+          <tr *ngFor="let data of behavioural; let i=index">
+           <td>{{i+1}}</td>
+           <td>{{data.SOP_TEXT}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div *ngSwitchCase="'OPERATIONAL'">
+      <table class="table table-type-1 table-bordered table-striped" cellpadding="10">
+        <tbody>
+         
+          <tr>
+            <th>{{'S.No' | translate}}</th>
+            <th>{{'SOP Text' | translate}}</th>
+            
+         </tr>
+          <tr *ngFor="let data of operational; let i=index">
+           <td>{{i+1}}</td>
+           <td>{{data.SOP_TEXT}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+</ion-content>

@@ -1,0 +1,161 @@
+
+
+
+    @media screen and(min-width: 1000px),screen and (min-height : 600px)
+    {
+    
+        ion-navbar{
+        height: 50px
+    
+        }
+    
+        ion-grid{
+            height: 100%;
+            //justify-content: center;
+        }
+    
+        .atr-button 
+        {
+        width: 100px !important;
+        height: 100px !important;
+        margin: 5px;
+        border-radius: 50%;
+        }
+    
+    
+         .atr-buttons
+         {
+            margin-top: 10px !important;
+            height: 40px !important;
+        }
+    
+            textarea
+            {
+                height: 154%;
+            }
+    
+    
+    }
+    
+    
+      .atr-buttons{
+            min-height: 36px;
+            width: 100%;
+        }
+        ion-grid{
+            height: 100%;
+            justify-content: center;
+        }
+        
+        
+    .align-top-home-buttons{
+               position: absolute;
+            bottom: -18px;
+        right: 15px;
+        }
+        
+    .top-header-buttons {
+            font-size: 25px;
+            padding: 10px;
+            margin-left: 59% !important;
+        }
+        
+    
+        .alert-radio-group {
+        max-height: 200px !important;
+    }
+    
+        .atr-button {
+                width: 59px;
+        height: 57px;
+        margin: 5px;
+        border-radius: 50%;
+        }
+        .atr-button ion-icon {
+            font-size: 1.5em;
+        }
+        .header-title{
+            font-size: 20px !important;
+        }
+        // .header-logo {
+        // height: 28px !important;
+        // }
+        .button-md{
+            height:2.6rem !important;
+        }
+    
+        .radio-style-1 ion-item {
+            display: inline-block;
+            // float: left;
+            width: 33.3333%;
+            font-weight: bold;
+            background: transparent;
+        }
+        
+        .radio-style-1 .radio-md {
+            display: inline-block;
+            // float: left;
+            margin: 17px 15px 15px 5px !important;
+            font-size: 15px;
+        }
+    
+    
+    
+     @media screen and(min-width: 450px){
+         .suggestionBox   .alert-radio-group {
+        max-height: 200px !important;
+    }
+    
+    
+    .suggestionBox .alert-wrapper {
+        min-width: 550px !important; //changed from 600 to 550 for motorolla
+        width: 600px !important;
+    }
+    .alert-md .alert-head {
+        padding: 7px 16px 6px 23px;
+        text-align: left;
+    }
+    
+    .suggestionBox .alert-button {
+        font-size: 24px !important;
+    }
+     }
+    page-videoPalyer{
+    
+         .header-title{
+            font-size: 20px !important;
+        }
+        .header-logo {
+        height: 28px !important;
+        }
+        .file_name{
+          font-size: 20px !important;
+          color: red;
+          margin-left: 25%;
+          margin-bottom: 10px;
+          margin-top: 10px;
+        }
+    }
+    page-audioPalyer{
+         .header-title{
+            font-size: 20px !important;
+        }
+        .header-logo {
+        height: 28px !important;
+        }
+        .file_name{
+          font-size: 20px !important;
+          color: red;
+    
+        }
+    }
+
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+       
+        color: white;
+        text-align: center;
+     }

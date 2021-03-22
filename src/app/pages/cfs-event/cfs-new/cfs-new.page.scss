@@ -1,0 +1,111 @@
+ion-app._gmaps_cdv_ .nav-decor {
+    background-color: transparent !important;
+  }
+  
+  page-cfs-new {
+  
+       @media screen and(min-width: 1000px),screen and (min-height : 600px)
+  {
+  
+  ion-header{
+  height: 50px;
+  
+  }
+  }
+  
+      .item{
+          padding: 0px !important;
+      }
+  
+      .col{
+          padding: 10px !important;
+      }
+  
+      ion-item {
+          background: transparent !important;
+      }
+  
+      
+      
+      .radio-style-1 .radio-md {
+          display: inline-block;
+          float: left;
+          margin: 17px 15px 15px 5px !important;
+          font-size: 15px;
+      }
+  
+      ion-input, ion-select, ion-textarea {
+          background: rgba(255, 255, 255, 0.2);
+          border: solid 1px #000;
+          width: 100%;
+          border-radius: 5px;
+          color: #fff;
+          font-size: 18px !important;
+      }
+  
+      .input-map-pointer {
+          position: absolute;
+          right: 0;
+          background: #ddd;
+          padding: 5px;
+          font-size: 18px;
+      }
+  
+      ion-label {
+          color: #fff;
+          font-size: 15px !important;
+          font-weight: bold;
+      }
+      .header-title{
+          font-size: 20px !important;
+      }
+      
+      .card-md {
+         max-width: 97%;
+          width: 100% !important;
+      }
+      .item-md{
+          padding-left: 8px !important;
+  
+      }
+      .label-md {
+      margin: 13px 8px 13px 0px !important;
+  }
+  
+  }
+  
+  page-newmap {
+  
+      .scroll-content {
+          background: transparent !important;
+      }
+   
+      #map {
+          height: 100%;
+          z-index: -1;
+      }
+      .header-title{
+          font-size: 20px !important;
+      }
+      
+  
+  }
+
+  .image-attach{
+    margin-top: 0.5vh;
+    border: solid 1px #ccc;
+    border-radius: 10px;
+}
+
+.radio-style-1 ion-item {
+    display: inline-block;
+    float: left;
+    width: 33.3333%;
+    font-weight: bold;
+}
+
+.buttonColor {
+    // --background: #346546;
+    width: 100%;
+    margin: auto;
+}

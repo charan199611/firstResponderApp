@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{'Event Additional Info' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+   
+  
+    <ion-card style="background: rgba(0, 0, 0, 0.5);border-radius: 20px;margin-top: 8px !important;margin: auto;">
+
+      <ion-card-content>
+
+        <form >
+
+          <ion-row>
+
+
+            <ion-col col-12 col-sm-6 col-md-6 col-lg-6>
+              <ion-item>
+                <ion-input  type="text" placeholder="{{'Enter name' | translate}}"
+                  name="distressName" limit-to='15'></ion-input>
+
+              </ion-item>
+            </ion-col>
+
+
+            <ion-col col-12 col-sm-6 col-md-6 col-lg-6>
+              <ion-item>
+                <ion-input name="distressContactNo" type="number"
+                  placeholder="{{'Enter phone number' | translate}}" limit-to='15'></ion-input>
+              </ion-item>
+            </ion-col>
+
+          </ion-row>
+
+          <ion-row>
+
+
+            <ion-col col-12>
+              <ion-item>
+                <ion-input type="text" name="distressAddress" 
+                  placeholder="{{'Enter address' | translate}}" aria-required="true" required></ion-input>
+              </ion-item>
+            </ion-col>
+
+          </ion-row>
+
+
+       
+
+          <ion-row>
+
+            <ion-col col-12>
+              <ion-item>
+                <ion-input maxlength type="text" name="additionalDetails" 
+                  placeholder="{{'Enter additional details' | translate}}" aria-required="true" required limit-to='50'></ion-input>
+              </ion-item>
+            </ion-col>
+
+          </ion-row>
+
+      
+          <ion-row>
+            <ion-col>
+            <button ion-button full style="width: 97%;height:97%;margin: auto;">{{'Submit' | translate}}</button>
+          </ion-col>
+          <ion-col>
+            <button ion-button full style="width: 97%;height:97%;margin: auto;" (click)="cancel()">{{'Cancel' | translate}}</button>
+          </ion-col>
+          </ion-row>
+
+        </form>
+
+      </ion-card-content>
+    </ion-card>
+  </ion-grid>
+</ion-content>

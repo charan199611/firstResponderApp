@@ -1,0 +1,12 @@
+node_modules
+electron-builder.yml
+dist
+.svn
+www
+ResponderApp-win32-x64
+outputdirectry
+src/assets
+platforms
+plugins
+resources
+e2e

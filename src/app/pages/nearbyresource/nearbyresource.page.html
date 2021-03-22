@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <div slot="start" class="ion-title-img">
+			<img src="assets/img/logo/Logo-Cairo.png" alt="">
+		  </div>
+    <ion-title>{{'Near By Resources'|translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+  <ion-col style="padding: 0; margin: 0;">
+    <table class="table table-type-1 table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>{{'S.No' | translate}}.</th>
+          <th>{{'Call Sign' | translate}}</th>
+          <th>{{'Vehicle ID' | translate}}</th>
+          <th>{{'Status' | translate}}</th>
+          <th>{{'Distance' | translate}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="nearbyResources.length === 0">
+          <td colspan="5" class="text-center">{{'No Resources Found' | translate}}</td>
+        </tr>
+        <tr *ngFor="let resource of nearbyResources; let i = index">
+          <td class="text-center">{{i + 1}}</td>
+          <td class="text-center">{{resource.vehno}}</td>
+          <td class="text-center">{{resource.vehid}}</td>
+          <td class="text-center">{{resource.status}}</td>
+          <td class="text-center">{{resource.distance}} {{'kms' | translate}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </ion-col>
+
+</ion-content>

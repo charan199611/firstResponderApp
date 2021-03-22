@@ -1,0 +1,179 @@
+<!--
+  Generated template for the Map page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-back-button></ion-back-button>
+  </ion-buttons>
+  <div slot="start" class="ion-title-img">
+    <img src="assets/img/logo/Logo-Cairo.png" alt="">
+    </div>
+
+  <ion-title>{{'Create CFS' | translate}}</ion-title>
+  <!-- <ion-navbar> -->
+
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-grid>
+    <input type="file" id="fileLoader" #fileLoader name="files" title="Load File" 
+      accept=".bmp,.pdf,.doc,.docx,.gif,.jpg,.png,.xlsx,.zip,.jpeg,.mp4,.mp3,image/*,.wav,video/*,audio/*" hidden
+      multiple />
+   
+    <ion-card style="background: rgba(0, 0, 0, 0.5);border-radius: 20px;margin-top: 8px !important;margin: auto;">
+
+      <ion-card-content>
+
+        <form name="newCFS" (ngSubmit)="updateCfsImages()">
+
+          <ion-row>
+
+
+            <ion-col col-12 col-sm-6 col-md-6 col-lg-6>
+              <ion-item>
+                <ion-input [(ngModel)]="newCFS.distressName" type="text" placeholder="{{'Enter distress name' | translate}}"
+                  name="distressName" limit-to='15'></ion-input>
+
+              </ion-item>
+            </ion-col>
+
+
+            <ion-col col-12 col-sm-6 col-md-6 col-lg-6>
+              <ion-item>
+                <ion-input name="distressContactNo" [(ngModel)]="newCFS.distressContactNo" type="number"
+                  placeholder="{{'Enter distress phone number' | translate}}" limit-to='15'></ion-input>
+              </ion-item>
+            </ion-col>
+
+          </ion-row>
+
+          <ion-row>
+
+
+            <ion-col col-12>
+              <ion-item>
+                <ion-input type="text" name="distressAddress" [(ngModel)]="newCFS.distressAddress"
+                  placeholder="{{'Enter distress address' | translate}}" aria-required="true" required></ion-input><span
+                  class="input-map-pointer">
+                  <ion-icon name="pin" (click)="updateLocationByMap()"></ion-icon>
+                </span>
+              </ion-item>
+            </ion-col>
+
+          </ion-row>
+
+
+          <ion-row>
+
+
+            <ion-col col-12 col-sm-6 col-md-6 col-lg-6>
+              <ion-item>
+                <ion-label style="display: none;">{{'Select Event Type' | translate}}</ion-label>
+                <ion-select name="eventMainType" [(ngModel)]="newCFS.eventMainType"
+                  style="min-width: 100% !important; width: 100% !important; max-width: 100% !important;"
+                  (ionChange)="getSubType(newCFS.eventMainType)" placeholder="{{'Select Event Type' | translate}}"
+                  title="{{'Select Event Type' | translate}}" aria-required="true" okText="{{'Ok' | translate}}" cancelText="{{'CANCEL' | translate}}" required>
+                  <ion-select-option *ngFor="let type of eventTypeList" [value]="type.event_id">{{type.event_name}}
+                  </ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-col>
+
+            <ion-col col-12 col-sm-6 col-md-6 col-lg-6>
+              <ion-item>
+                <ion-label style="display: none;">{{'Select Sub Event Type' | translate}}</ion-label>
+                <ion-select name="eventSubType" [(ngModel)]="newCFS.eventSubType"
+                  style="min-width: 100% !important; width: 100% !important; max-width: 100% !important;"
+                  placeholder="{{'Select Sub Event Type' | translate}}" title="{{'Select Sub Event Type' | translate}}" aria-required="true" okText="{{'Ok' | translate}}" cancelText="{{'CANCEL' | translate}}" required>
+                  <ion-select-option *ngFor="let type of eventSortedList" [value]="type.event_id">{{type.event_name}}
+                  </ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-col>
+
+          </ion-row>
+
+          <ion-row>
+
+            <ion-col col-12>
+              <ion-item>
+                <ion-input maxlength type="text" name="additionalDetails" [(ngModel)]="newCFS.additionalDetails"
+                  placeholder="{{'Enter additional details' | translate}}" aria-required="true" required limit-to='50'></ion-input>
+              </ion-item>
+            </ion-col>
+
+          </ion-row>
+
+          <ion-row >
+            <ion-col col-12>
+              <ion-label>{{'Select Priority' | translate}}</ion-label>
+            </ion-col>
+            <ion-col col-12>
+              <ion-list class="radio-style-1" [(ngModel)]="newCFS.priority" name="priority">
+                <ion-radio-group>
+                  <ion-item style="min-width: 100px;">
+                    <ion-radio item-left value="1"></ion-radio>
+                    <ion-label>{{'High' | translate}}</ion-label>
+                  </ion-item>
+
+                  <ion-item style="min-width: 118px;">
+                    <ion-radio item-left value="2"></ion-radio>
+                    <ion-label>{{'Medium' | translate}}</ion-label>
+                  </ion-item>
+
+                  <ion-item style="min-width: 100px;">
+                    <ion-radio item-left value="3" checked></ion-radio>
+                    <ion-label>{{'Low' | translate}}</ion-label>
+                  </ion-item>
+
+                </ion-radio-group>
+              </ion-list>
+
+            </ion-col>
+          </ion-row>
+          <div >
+            <ion-row style="width:17%">
+              <ion-col col-4 *ngFor="let mediafile of mediafiles;let i=index;">
+                <img [src]="mediafile.filepath" alt="add" class="img-height animated infinite bounceInDown delay-3s"
+                  (click)="updateFile(i,fileLoader)" />
+                <!-- <img src="assets/img/videoplayer.png" alt="add" class="img-height" (click)="updateFile(i)"
+                  *ngIf="mediafile.fileType=== 'video'" />
+                <img src="assets/img/attach.png" alt="add" class="img-height" (click)="updateFile(i)"
+                  *ngIf="mediafile.fileType=== 'document'" />
+                <img src="assets/img/audio.png" alt="add" class="img-height" (click)="updateFile(i)"
+                  *ngIf="mediafile.fileType=== 'audio'" /> -->
+                <!-- <ion-button (click)="showMedia(mediafile.fileLocalPath,mediafile.fileType)" *ngIf="mediafile.isFileAttached === true"
+                  class="view-btn capitalize">
+                  <ion-icon name="eye"></ion-icon>
+                  <span class="left-padding" *ngIf="mediafile.fileType=== 'image'">{{"view" | translate}}</span>
+                  <span class="left-padding" *ngIf="mediafile.fileType=== 'video'">{{"play" | translate}}</span>
+                  <span class="left-padding" *ngIf="mediafile.fileType=== 'document'">{{"view"}}</span>
+                  <span class="left-padding" *ngIf="mediafile.fileType=== 'audio'">{{"play"}}</span>
+                </ion-button> -->
+              </ion-col>
+            </ion-row>
+          </div>
+          <ion-row>
+<!-- 
+            <button type="submit" [ngStyle]="{'background-color': buttonColor}" class="btn btn-primary btn-login">
+              {{'LOG IN' | translate }}</button>
+            <button ion-button full style="width: 97%;margin: auto;">{{'Create CFS' | translate}}</button> -->
+          
+           
+            <ion-button type="submit" full class="buttonColor">{{'Create CFS' | translate}}</ion-button>
+     
+          </ion-row>
+
+        </form>
+
+      </ion-card-content>
+    </ion-card>
+  </ion-grid>
+</ion-content>

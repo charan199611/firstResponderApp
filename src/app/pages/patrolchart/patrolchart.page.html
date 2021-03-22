@@ -1,0 +1,43 @@
+<ion-header>
+	<ion-toolbar>
+
+		<ion-buttons slot="start">
+		  <ion-back-button></ion-back-button>
+		</ion-buttons>
+		<div slot="start" class="ion-title-img">
+		  <img src="assets/img/logo/Logo-Cairo.png" alt="">
+		</div>
+		<ion-title>{{'Patrol Chart' | translate}} </ion-title>
+	  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-col style="padding: 0; margin: 0;">
+		<div style="overflow: scroll;height:83vh">
+			<table class="table table-type-1 table-bordered table-striped">
+				<thead>
+					<tr>
+						<th>{{'Start Time' | translate}}</th>
+						<th>{{'End Time' | translate}}</th>
+						<th style="min-width: 110px !IMPORTANT;">{{'Place'| translate}}</th>
+					
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngIf="patrolList.length === 0">
+						<td colspan="6" class="text-center">{{'No data found' | translate}}</td>
+					</tr>
+					<tr (click)="loadPatrolMap(patrol.wkt)"
+						*ngFor="let patrol of patrolList; let i = index">
+						<td class="textcenter- row">{{patrol.sDate}}</td>
+						<td class="text-center row">{{patrol.eDate}}</td>
+						<td class="text-center row">{{patrol.place}}</td>
+					
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</ion-col>
+
+</ion-content>

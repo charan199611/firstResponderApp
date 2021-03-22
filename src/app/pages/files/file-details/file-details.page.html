@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{'File Details' | translate}}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <div slot="start" class="ion-title-img">
+			<img src="assets/img/logo/Logo-Cairo.png" alt="">
+		  </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngFor="let option of mediaList;">
+
+   <ion-item *ngIf="option.file_name !== 'liveStreamUrl'" (click)="mediaDisplay(option.file_path,option.file_name)">
+      <ion-label >{{getLabelName(option.file_path,option.file_name)}}</ion-label> 
+    </ion-item>
+
+
+  </ion-list>
+</ion-content>

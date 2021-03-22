@@ -1,0 +1,54 @@
+.modal-title {
+    color: cornflowerblue;
+    font-size: 1.5em;
+  }
+  
+  #map {
+    z-index: -1 !important;
+    border: 1px solid gray;
+  }
+  
+  .dot {
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  
+  .flio-bg {
+    background: var(--first-half-card-bg) !important;
+    color: white;
+  }
+  
+  .background-theme {
+    color: var(--page-cotent-color);
+    background-color: var(--page-content-bg);
+  }
+  
+  ion-button{
+    --background: #346546 !important;
+    --color: white;
+  }
+  
+  .address{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    white-space: nowrap;
+  }
+
+  .button-position{
+      position: absolute;
+      bottom: 0;
+  }
+
+  .div-width{
+      width: 100% !important;
+  }
+
+  p{
+    text-align: initial;
+    font: normal normal normal 20px/27px Open Sans;
+  }
+
+  

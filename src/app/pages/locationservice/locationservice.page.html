@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button class="custom-back-button" (click)="backFunction()">
+				<ion-icon name="arrow-back"></ion-icon>
+			  </ion-button>
+    </ion-buttons>
+    <div slot="start" class="ion-title-img">
+			<img src="assets/img/logo/Logo-Cairo.png" alt="">
+		  </div>
+    <ion-title>{{'Location Service' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <ion-grid style="height: 100%;justify-content: center">
+    <ion-card>
+      <ion-row>
+          <ion-col class="col-20" (click)="openLocationService(1)">
+            <div class="text-center">
+              <img src="assets/img/icons/view-location.png" alt="View Location" style="width: 90%;">
+            </div>
+            <h3 class="text-white text-center" style="text-align: center;" class="undelinedText">{{'View Location' | translate}}</h3>
+            <!--<marquee>View your current location)</marquee>-->
+          </ion-col>
+
+          <ion-col class="col-20" (click)="openLocationService(2)">
+            <div class="text-center">
+              <img src="assets/img/icons/search-poi.png" alt="Search POI" style="width: 90%;">
+            </div>
+            <h3 class="text-white text-center" style="text-align: center;" class="undelinedText">{{'Search POI' | translate}}</h3>
+            <!--<marquee>(Search for a certain place)</marquee>-->
+          </ion-col>
+
+
+
+          <ion-col class="col-20" (click)="openLocationService(3)">
+            <div class="text-center">
+              <img src="assets/img/icons/nearby-events.png" alt="Nearby Events" style="width: 90%;">
+            </div>
+            <h3 class="text-white text-center" style="text-align: center;" class="undelinedText">{{'Nearby Events' | translate}}</h3>
+            <!--<marquee>(View nearby dispatched CFS)</marquee>-->
+          </ion-col>
+
+          <ion-col class="col-20" (click)="openLocationService(4)">
+            <div class="text-center">
+              <img src="assets/img/icons/nearby-resources.png" alt="Nearby Resources" style="width: 90%;">
+            </div>
+            <h3 class="text-white text-center" style="text-align: center;" class="undelinedText">{{'Nearby Resources' | translate}}</h3>
+            <!--<marquee>(View nearby police vehicles)</marquee>-->
+          </ion-col>
+
+        
+          <ion-col class="col-20" (click)="openLocationService(5)">
+            <div class="text-center">
+              <img src="assets/img/icons/create-poi.png" alt="Create POI" style="width: 90%;">
+            </div>
+            <h3 class="text-white text-center" style="text-align: center;" class="undelinedText">{{'Create POI' | translate}}</h3>
+            <!--<marquee>(Capture Image and Create a POI)</marquee>-->
+        </ion-col>
+      </ion-row>
+    </ion-card>
+
+  </ion-grid>
+</ion-content>

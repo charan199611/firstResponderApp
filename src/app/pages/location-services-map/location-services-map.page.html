@@ -1,0 +1,193 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <div slot="start" class="ion-title-img">
+			<img src="assets/img/logo/Logo-Cairo.png" alt="">
+		  </div>
+    <ion-title>{{'Map' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content style="--overflow: hidden;">
+  <div id="locmap" style="height: 100%;">
+    <ion-button (click)="addPlaceMarker()" *ngIf="showInfaStructure === true" style="font-size: 10px !important;height: 9%;margin: 4px;">{{'Relocate' | translate}}</ion-button>
+    <ion-button  (click)="showInfrastructureLocation()" *ngIf="showInfaStructure === true" style="font-size: 10px !important;height: 9%;margin: 4px;">{{'Infrastructrure Materials' | translate}}</ion-button>
+    <ion-button (click)="showHazardousLocation()" *ngIf="showInfaStructure === true" style="font-size: 10px !important;height: 9%;margin: 4px;">{{'Hazardous Location' | translate}}</ion-button>
+    <ion-button  (click)="showIncidentLocation()" *ngIf="showInfaStructure === true" style="font-size: 10px !important;height: 9%;margin: 4px;">{{'Incident Location' | translate}}</ion-button>
+    
+
+    <ion-button  (click)="showGridView()" *ngIf="showScrollRange === true" style="font-size: 14px !important;height: 10%;margin: 4px;">{{'Grid View' | translate}}</ion-button>
+
+
+
+    <ion-button (click)="backToSearch()" *ngIf="showBackButton === true">{{'Back to Search' | translate}}</ion-button>
+    <ion-grid class="search-poi sidebar" *ngIf="showSearchPoiBox === true" style="background: black;">
+      <!-- <ion-row>
+          
+          <ion-col col-3>
+            <ion-label>Group</ion-label>
+          </ion-col>
+          <ion-col col-9>
+            <ion-item>
+              <ion-label style="display: none;">Select Group</ion-label>
+              <ion-select name="Select Group" [(ngModel)]="selectedGroup" (ionChange)="getLayers($event, selectedGroup)" style="min-width: 100% !important; width: 100% !important; max-width: 100% !important;"  placeholder="Select Group" title="Select Group" aria-required="true" required>
+                <ion-option *ngFor="let group of poiGroup"  [value]="group.group_id">{{group.group_name}}</ion-option>
+              </ion-select>
+            </ion-item>
+          </ion-col>
+
+        </ion-row> -->
+      <ion-row>
+
+        <ion-col size="3">
+          <ion-item>
+          <ion-label>{{'Layer' | translate}}</ion-label>
+        </ion-item>
+        </ion-col>
+        <ion-col size="9">
+          <ion-item>
+            <ion-label style="display: none;">{{'Select Layer' | translate}}</ion-label>
+            <ion-select name="Select Layer" [(ngModel)]="selectedGroup" style="min-width: 100% !important; width: 100% !important; max-width: 100% !important;"
+              placeholder="{{'Select Layer' | translate}}" title="Select Layer" aria-required="true" cancelText="{{'CANCEL' | translate}}" okText="{{'Ok' | translate}}"  required>
+              <ion-select-option *ngFor="let layer of poiLayer" [value]="layer.group_id">{{layer.group_name | translate}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+
+      </ion-row>
+      <ion-row>
+
+        <!-- <ion-col col-3>
+          <ion-label>POI</ion-label>
+        </ion-col>
+        <ion-col col-9>
+         <ion-item>
+            <ion-label style="display: none;">Select POI</ion-label>
+            <ion-select name="Select POI" [(ngModel)]="selectedPoi" (ionChange)="zoomToCenter($event,selectedPoi)" style="min-width: 100% !important; width: 100% !important; max-width: 100% !important;"
+              placeholder="Select POI" title="Select POI" aria-required="true" required>
+              <ion-select-option [value]="poi" *ngFor="let poi of pois">{{poi.name}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col> -->
+
+        <ion-row>
+          <ion-col>
+            <ion-button ion-button class="buttonColor shadow-margin" (click)="serchPOI()">{{'Submit' | translate}}</ion-button>
+          </ion-col>
+        </ion-row>
+
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid class="create-poi sidebar_createpoi" *ngIf="serviceType === 5" style="background: black;">
+      <!-- <div class="plus radius">
+      </div> -->
+      <ion-row>
+        <ion-col size="9">
+
+          <!--<ion-list>
+            <ion-item>
+              <ion-label stacked>Select Group</ion-label>
+              <ion-select [(ngModel)]="createPoi.selectedGroup" (ionChange)="getLayers($event, createPoi.selectedGroup)" placeholder="Select Group">
+                <ion-option [value]="group.group_id" *ngFor="let group of poiGroup">{{group.group_name}}</ion-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>-->
+
+          <ion-list>
+            <!-- <ion-item> -->
+              <ion-select style="width: fit-content;" placeholder="{{'Select Layer' | translate}}" (ionChange)="selectPoiLayer($event)" okText="{{'Ok' | translate}}" cancelText="{{'CANCEL' | translate}}">
+                <ion-select-option [value]="layer" *ngFor="let layer of poiLayer">{{layer.group_name | translate}}</ion-select-option>
+              </ion-select>
+            <!-- </ion-item> -->
+          </ion-list>
+
+          <ion-list>
+            <ion-item>
+              <ion-label stacked>{{'POI Name' | translate}}</ion-label>
+              <ion-input [(ngModel)]="createPoi.poiName" placeholder="{{'Enter POI Name' | translate}}"></ion-input>
+            </ion-item>
+          </ion-list>
+
+          <ion-list>
+            <ion-item>
+              <ion-label stacked>{{'Current Latitude' | translate}}</ion-label>
+              <ion-input [(ngModel)]="createPoi.latitude" value="{{createPoi.latitude}}" placeholder="{{'Enter latitude' | translate}}">
+              </ion-input>
+            </ion-item>
+          </ion-list>
+
+          <ion-list>
+            <ion-item>
+              <ion-label stacked>{{'Current Longitude' | translate}}</ion-label>
+              <ion-input [(ngModel)]="createPoi.longitude" value="{{createPoi.longitude}}"
+                placeholder="{{'Enter longitude' | translate}}"></ion-input>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+
+        <ion-col size="3" style="text-align: center;">
+          <ion-row class="text-center" style="display: block;">
+            <ion-img width="100%" height="300px" src="{{captureImageUrl}}" class="text-center"
+              style="background: rgb(109, 106, 106);padding: 6%;"></ion-img>
+          </ion-row>
+
+          <ion-row class="text-center" style="display: block;">
+            <input type="file" id="fileLoader" #fileLoader name="files" title="Load File"
+            accept=".bmp,.pdf,.doc,.docx,.gif,.jpg,.png,.xlsx,.zip,.jpeg,.mp4,.mp3,image/*,.wav,video/*,audio/*"
+            hidden multiple />
+
+            <ion-button class="buttonColor shadow-margin" (click)="captureImage(fileLoader)" style="width: 40%;">{{'Capture Image' | translate}}</ion-button>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+      
+        <ion-col>
+
+
+          <ion-button full (click)="uploadPOI()" class="buttonColor shadow-margin" style="width: 16%;">{{'Submit' | translate}}</ion-button>
+        
+       
+          <!-- <ion-button full (click)="relocatePOI()" class="buttonColor shadow-margin" style="width: 16%;margin-right: 3px;">{{'Locate' | translate}}</ion-button> -->
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+  </div>
+
+
+</ion-content>
+
+<div class="float" *ngIf="serviceType === 5">
+  <ion-icon name="locate" class="my-float md hydrated" role="img" aria-label="locate" style="
+    
+    font-size: 33px;" (click)="relocatePOI()"></ion-icon>
+  </div>
+
+<!-- <div class="float-button">
+  <span class="height-fix">
+
+    <a ui-sref="add-trip" class="content" >
+      <ion-icon name="locate"></ion-icon>
+    </a>
+  
+  </span>
+</div> -->
+<ion-footer>
+  <ion-toolbar>
+    <ion-item class="distanceSeletector" *ngIf="showScrollRange === true">
+      <ion-label>{{'Distance:' | translate}}<span>{{getdistanceValue()}}</span>{{'km' | translate}}</ion-label>
+      <ion-range [(ngModel)]='distanceValue' min="2" max="10" step="1" snaps="true" color="danger" pin="true"
+        (ionChange)="fetchData()"></ion-range>
+    </ion-item>
+    <ion-button  *ngIf="navigationButton === true" style="z-index: 10000; height:36px;width:100px" (click)="showRoute();">{{'Route' | translate}}</ion-button>
+  </ion-toolbar>
+
+  
+</ion-footer>

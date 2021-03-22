@@ -1,0 +1,56 @@
+<ion-header>
+	<ion-toolbar>
+
+		<ion-buttons slot="start">
+		  <ion-back-button></ion-back-button>
+		</ion-buttons>
+		<div slot="start" class="ion-title-img">
+		  <img src="assets/img/logo/Logo-Cairo.png" alt="">
+		</div>
+		<ion-title>{{'Reports' | translate}} </ion-title>
+	  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-segment [(ngModel)]="showtype" (ionChange)="typeChanged()">  
+    <ion-segment-button value="TODAY">
+    <ion-label>{{'Today' | translate}}</ion-label>
+  </ion-segment-button>
+  <ion-segment-button value="WEEK">
+    <ion-label>{{'Week' | translate}}</ion-label>
+  </ion-segment-button>
+  <ion-segment-button value="MONTH">
+    <ion-label>{{'Month' | translate}}</ion-label>
+    </ion-segment-button>
+</ion-segment>
+
+
+
+<div style="display: block;">
+  <canvas #callsCanvas>{{"Loading..." | translate}}</canvas>
+  <!-- <canvas baseChart 
+    [datasets]="barChartData"
+    [labels]="barChartLabels"
+    [options]="barChartOptions"
+    [plugins]="barChartPlugins"
+    [legend]="barChartLegend"
+    [chartType]="barChartType">
+  </canvas> -->
+</div>
+<div [ngSwitch]="showtype">
+
+  <div *ngSwitchCase="'TODAY'">
+    <!-- <canvas #callsCanvas>{{"Loading..." | translate}}</canvas> -->
+ 
+  </div>
+
+  <div *ngSwitchCase="'WEEK'">
+    <!-- <canvas #callsCanvas>{{"Loading..." | translate}}</canvas> -->
+  </div>
+
+  <div *ngSwitchCase="'MONTH'">
+    <!-- <canvas #callsCanvas>{{"Loading..." | translate}}</canvas> -->
+  </div>
+  </div>
+</ion-content>

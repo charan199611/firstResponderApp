@@ -1,0 +1,164 @@
+page-cfs-details {
+
+
+	.selectOfficerAlert .alert-title {
+    font-size: 2.5em !important;
+}
+
+.selectOfficerAlert .alert-md .alert-wrapper {
+    max-width: 400px !important;
+}
+
+
+.selectOfficerAlert .alert-radio-button {
+    font-size: 2em !important;
+}
+
+
+.selectOfficerAlert .alert-button-group button {
+    font-size: 2em !important;
+}
+
+/* added for fire hawk during demo*/
+/*start*/
+@media screen and(min-width: 1000px),screen and (min-height : 650px){ 
+
+	ion-grid{
+		height: 100% !important;
+		justify-content: center !important;
+	}
+
+	.cardview
+	{
+               height: 430px
+	}
+}
+/*end*/
+
+@media screen and(min-width: 1000px),screen and (min-height : 650px){
+
+	ion-navbar{
+	height: 50px
+
+	}
+
+	table{
+	border-collapse: separate;
+    border-spacing: 18px;
+	}
+
+	.iono
+	{
+          border-spacing: 0px !important;
+	}
+}
+
+
+
+	@media screen and(min-width: 600px){
+
+	table.table td {
+    font-size: 2vw !important;
+}
+	
+	}
+	
+	.display-portarait{
+		display: none;
+		
+	}
+	.display-landscape{
+		display: '';
+	}
+
+	@media screen and (max-width:450px){
+		.display-portarait{
+			display: block;
+		}
+
+		.display-landscape{
+		display: none;
+	}
+
+	.cfs-details-icons{
+		display: block
+	}
+
+	.radio-style-1 ion-item{
+		width: 50% !important;
+	}
+	}
+
+	.label-md {
+    margin: 13px -16px 13px 0;
+}
+
+	table.table td {
+		font-size: 20px;
+	}
+	
+
+	.radio-style-1 ion-item {
+		display: inline-flex;
+		float: left;
+		width: 20.2%;
+		font-weight: bold;
+	}
+	
+	.radio-style-1 .radio-md {
+		display: inline-block;
+		float: none;
+		margin: 17px 5px 15px 5px !important; //changed from  17px 5px 15px 5px for motorolla device
+		font-size: 15px;
+	}
+
+	.radio-md.radio-disabled,.item-md.item-radio-disabled ion-label {
+		//opacity: 0.4;	
+	}
+
+	ion-label .disabled-status { 
+		color: green;
+	}
+	.header-title{
+		font-size: 20px !important;
+	}
+	// .header-logo {
+    // height: 28px !important;
+	// }
+	.action-buttons {
+    font-size: 2.5vw !important;
+   
+}
+	
+}
+page-cfs-details table.table td {
+    font-size: 14px;
+}
+
+.notifyDistance .alert-wrapper, .custom-alert .alert-wrapper {
+	color: #000;
+	min-width:  500px !important;
+	width:  500px !important;
+}
+
+.notifyDistance .alert-title {
+	font-size: 30px !important;
+}
+
+.notifyDistance .alert-md .alert-sub-title {
+	font-size: 30px !important;
+}
+
+.notifyDistance .alert-button {
+	font-size: 24px !important;
+}
+.alert-md .alert-head{
+	padding: 7px 16px 6px 23px !important;
+    text-align: left !important;
+}
+.row{
+   
+    text-align: center!important;
+}
+
+

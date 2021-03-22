@@ -1,0 +1,43 @@
+
+
+<ion-content>
+  <ion-grid>
+   
+  
+    <ion-card style="border-radius: 20px;margin-top: 8px !important;margin: auto;">
+
+      <!-- <ion-card-content> -->
+        <table class="table table-type-1 table-bordered table-striped" cellpadding="10">
+          <tbody>
+
+            <tr>
+              <th>{{'Name' | translate}}</th>
+              <th>{{'Address' | translate}}</th>
+              <th>{{'Distance' | translate}}</th>
+             
+              
+           </tr>
+           <tr *ngFor="let data of status; " (click)="moveToHazardousLocation(data.LATITUDE,data.LONGITUDE,data.ADDRESS)">  
+              <td>{{data.NAME}}</td>
+              <td>{{data.ADDRESS}}</td>
+              <td>{{getDistance(data.distance)}} Kms</td> 
+           </tr>
+         
+           </tbody>
+        </table>
+     
+          
+        <form>
+
+          <ion-row>
+          <ion-col>
+            <button ion-button full style="width: 45%;height:97%;margin: auto;" (click)="cancel()">{{'Cancel' | translate}}</button>
+          </ion-col>
+          </ion-row>
+
+        </form>
+
+      <!-- </ion-card-content> -->
+    </ion-card>
+  </ion-grid>
+</ion-content>

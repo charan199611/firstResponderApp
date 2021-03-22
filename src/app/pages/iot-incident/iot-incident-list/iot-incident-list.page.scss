@@ -1,0 +1,43 @@
+.notifyDistance .alert-wrapper, .custom-alert .alert-wrapper {
+	color: #000;
+	min-width:  500px !important;
+	width:  500px !important;
+}
+
+.notifyDistance .alert-title {
+	font-size: 30px !important;
+}
+
+.notifyDistance .alert-md .alert-sub-title {
+	font-size: 30px !important;
+}
+
+.notifyDistance .alert-button {
+	font-size: 24px !important;
+}
+.alert-md .alert-head{
+	padding: 7px 16px 6px 23px !important;
+    text-align: left !important;
+}
+.row{
+   
+    text-align: center!important;
+}
+
+.custom-back-button{
+    --color:black;
+  --icon-margin-end: 0;
+  --icon-margin-start: 0;
+  --icon-font-size: 24px;
+  --icon-font-weight: normal;
+  --min-height: 32px;
+  --min-width: 44px;
+  --padding-start: 12px;
+  --padding-end: 12px;
+  --background-activated: #FFFFF;
+}
+.buttonText{
+	width: 25%;
+	font-size: 1.2em;
+}
+

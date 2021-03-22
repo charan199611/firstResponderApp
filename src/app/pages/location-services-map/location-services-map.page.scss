@@ -1,0 +1,199 @@
+ion-app._gmaps_cdv_ .nav-decor {
+    background-color: transparent !important;
+  }
+  
+  
+  @media screen and(min-width: 1000px),screen and (min-height : 650px){
+  
+      ion-navbar{
+      height: 50px ;
+  
+      }
+  
+      .header-logo-text{
+          font-size: 20px !important;
+      }
+  }
+  
+  // .table > tbody > tr > td {
+  //     font-size: 17px !important; //changed for motorolla from 20 to 17
+  // 	}
+  .table > thead > tr > th {
+       vertical-align: bottom;
+    
+     // font-size: 16px !important; //changed for motorolla from 20 to 16
+  }
+
+  .buttonClass{
+    font-size: 14px !important;
+    height: 10%;
+    margin: 4px;
+  }
+  
+  page-location-services-map {
+  
+    .search-poi ion-select {
+      font-size: 16px !important;
+    }
+  
+    .create-poi ion-img.img-loaded img {
+        display: inline-block;
+    }
+  
+    .search-poi ion-select {
+      font-size: 24px !important;
+    }
+  
+    ion-select, ion-input {
+      font-size: 16px !important;
+    }
+  
+    .scroll-content {
+      background: transparent !important;
+       padding-bottom: 0px !important;
+    }
+  
+   
+  
+    #map {
+      height: 100%;
+      z-index: -1 !important;
+    }
+  
+    .overflow-div{
+      overflow: scroll !important;
+      position: relative;
+    }
+  
+    .distanceSeletector {
+      position: absolute;
+      width: 50%;
+      bottom: 10px;
+      left: 25%;
+    }
+  
+    .sidebar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      background: #fff;
+      width: 100%;
+      z-index: 99999 !important;
+    }
+     .sidebar_createpoi {
+      position: absolute;
+      top: 0;
+      left: 0;
+     
+      background: #fff;
+      width: 100%;
+      z-index: 99999 !important;
+    }
+    .header-title{
+          font-size: 20px !important;
+      }
+      // .header-logo {
+    //   height: 28px !important;
+      // }
+     .card-md {
+        background: rgba(0, 0, 0, 0.5);
+        max-height: 96%;
+    width: calc(100% - 20px);
+    border-radius: 20px;
+    font-size: 1.4rem;
+    background: #fff;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+      }
+      .card-content-md {
+    padding: 0px 16px 13px 16px !important;
+    font-size: 1.4rem;
+    line-height: 1.5;
+  }
+      ion-input, ion-select, ion-textarea {
+          background: rgba(255, 255, 255, 0.2);
+          border: solid 1px #000;
+          width: 100%;
+          border-radius: 5px;
+          color: #fff;
+          font-size: 18px !important;
+      }
+  
+      .input-map-pointer {
+          position: absolute;
+          right: 0;
+          background: #ddd;
+          padding: 5px;
+          font-size: 18px;
+      }
+  
+      ion-label {
+          color: #fff;
+          font-size: 16px !important;
+          font-weight: bold;
+      }
+      .item-md {
+    
+      padding-right: 0;
+      padding-left: 16px;
+      font-size: 1.6rem;
+      font-weight: normal;
+      text-transform: none;
+      color: #000;
+      background-color: rgba(0, 0, 0, 0.5) !important;
+      box-shadow: none;
+      transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .item-md.item-block .item-inner{
+         border-bottom: 0px !important;
+  }
+  .list-md .item-input:last-child {
+      border-bottom: 0px !important;
+  }
+
+ 
+
+  }
+
+  .shadow-margin{
+    // --border-radius: 25px;
+    margin: 0 auto;
+    width: 56%;
+    margin-left: 87%;
+}
+.buttonColor {
+  
+  width: 100%;
+  margin: auto;
+}
+
+img{
+
+}
+
+.popover-content.sc-ion-popover-md {
+  overflow-x: hidden;
+  width: 45%;
+}
+
+.float{
+	position:absolute;
+	width:60px;
+	height:60px;
+  bottom: 57px;
+  right: 10px;
+	background-color:#0C9;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+}
+
+.my-float{
+	margin-top:22px;
+}
+
+
+
+
+  

@@ -1,0 +1,183 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <div slot="start" class="ion-title-img">
+      <img src="assets/img/logo/Logo-Cairo.png" alt="">
+    </div>
+
+    <ion-title>{{'SOS Event Details' | translate}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="operatorInfo()">
+        <ion-icon style="font-size: 2.5em;"  name="information-circle-outline"></ion-icon>
+      </ion-button>
+
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid>
+    <div>
+      <ion-card class="cardview">
+        <ion-card-content>
+          <div style="overflow: auto">
+            <table class="table table-bordered" style="margin-bottom: 0px;white-space: nowrap;height:70vh">
+              <tr class="display-portarait">
+                <td class="table-label-column">{{'SOS ID' | translate}}</td>
+                <td>{{selectedSOS?.eventid}}</td>
+              </tr>
+              <tr class="display-portarait">
+                <td class="table-label-column">{{'Priority' | translate}}</td>
+                <td>{{selectedSOS?.priority}}</td>
+              </tr>
+
+              <tr class="display-landscape">
+                <td class="table-label-column">{{'SOS ID' | translate}}</td>
+                <td>{{selectedSOS?.eventid}}</td>
+                <td class="table-label-column">{{'Priority' | translate}}</td>
+                <td>{{selectedSOS?.priority}}</td>
+              </tr>
+
+
+              <tr (click)="changeEventType()" class="display-portarait">
+                <td class="table-label-column">{{'Event Type' | translate}}</td>
+                <div>
+                  <td (click)="changeEventType()">{{selectedSOS?.eventtype}}</td>
+                </div>
+              </tr>
+              <tr class="display-portarait">
+                <td class="table-label-column">{{'Event Sub Type' | translate}}</td>
+                <td>{{selectedSOS?.subtype}}</td>
+              </tr>
+
+              <tr class="display-landscape">
+                <td class="table-label-column">{{'Event Type' | translate}}</td>
+                <td>{{selectedSOS?.eventtype}}</td>
+                <td class="table-label-column">{{'Event Sub Type' | translate}}</td>
+                <td>{{selectedSOS?.subtype}}</td>
+              </tr>
+
+              <tr class="display-landscape">
+                <td class="table-label-column">{{'Address' | translate}}</td>
+                <td colspan="3" style="text-overflow: ellipsis; word-break: keep-all;">{{selectedSOS?.address}}</td>
+              </tr>
+
+              <tr class="display-portarait">
+                <td class="table-label-column">{{'Address' | translate}}</td>
+                <td colspan="2" style="text-overflow: ellipsis; word-break: keep-all;">{{selectedSOS?.address}}</td>
+              </tr>
+
+              <tr class="display-portarait">
+                <td class="table-label-column">{{'Landmark' | translate}}</td>
+                <td>{{selectedSOS?.landmark}}</td>
+              </tr>
+              <tr class="display-portarait">
+                <td class="table-label-column">{{'Phone' | translate}}</td>
+                <td>{{selectedSOS?.mobile}} <span class="pull-right"><a href="tel:{{selectedSOS?.mobile}}">
+                      <ion-icon class="iono" name="call"></ion-icon>
+                    </a></span></td>
+              </tr>
+
+              <tr class="display-landscape">
+                <td class="table-label-column">{{'Landmark' | translate}}</td>
+                <td>{{selectedSOS?.landmark}}</td>
+                <td class="table-label-column">{{'Phone' | translate}}</td>
+                <td>{{selectedSOS?.mobile}} <span class="pull-right"><a href="tel:{{selectedSOS?.mobile}}">
+                      <ion-icon name="call"></ion-icon>
+                    </a></span></td>
+              </tr>
+
+              <tr class="display-portarait">
+                <td class="table-label-column">{{'Nearest Station' | translate}}</td>
+                <td>{{selectedSOS?.nearestStation}}</td>
+              </tr>
+              <tr class="display-portarait">
+                <td class="table-label-column">{{'Date' | translate}}</td>
+                <td>{{selectedSOS?.receivedDateTime}}</td>
+              </tr>
+
+              <tr class="display-landscape">
+                <td class="table-label-column">{{'Nearest Station' | translate}}</td>
+                <td>{{selectedSOS?.nearestStation}}</td>
+                <td class="table-label-column">{{'Date' | translate}}</td>
+                <td>{{selectedSOS?.receivedDateTime}}</td>
+              </tr>
+
+              <tr class="display-portarait">
+                <td class="table-label-column">{{'Locality' | translate}}</td>
+                <td>{{selectedSOS?.placename}}</td>
+              </tr>
+              <tr class="display-portarait">
+                <td class="table-label-column">{{'Distress Name' | translate}}</td>
+                <td>{{selectedSOS?.distressName}}</td>
+              </tr>
+
+              <tr class="display-landscape">
+                <td class="table-label-column">{{'Locality' | translate}}</td>
+                <td>{{selectedSOS?.placename}}</td>
+                <td class="table-label-column">{{'Distress Name' | translate}}</td>
+                <td>{{selectedSOS?.distressName}}</td>
+              </tr>
+
+           
+            </table>
+          </div>
+        </ion-card-content>
+
+      </ion-card>
+
+      <ion-card style="margin: 10px 10px 4px 10px ! important;height:10vh">
+
+        <ion-list class="radio-style-1">
+          <ion-radio-group [(ngModel)]="selectedSOS.statusid"
+            (ionChange)="openAbandonedReasons(selectedSOS.statusid, selectedSOS.basicid, selectedSOS.eventid, selectedSOS.currentStatus, selectedSOS.fromUserType,selectedSOS.cityId,selectedSOS.cityZoneId,selectedSOS.deptId,selectedSOS.psId, selectedSOS.fromUserName,selectedSOS.priority)">
+            <ion-item *ngFor="let status of missionStatus"
+              style="padding-left: 1px !important;margin-left: -3px !important">
+              <ion-radio *ngIf="!showCompletedStatus(status.event_status_id, selectedSOS?.currentStatus)"
+                [value]="status.event_status_id" item-left
+                [disabled]="checkDisabledStatus(status.event_status_id, selectedSOS.currentStatus)"
+                style="font-size: 13px;">
+              </ion-radio>
+              <ion-label>
+                <ion-icon *ngIf="showCompletedStatus(status.event_status_id, selectedSOS?.currentStatus)"
+                  name="checkmark-circle-outline"
+                  style="font-size: 13px; color: green; margin-left: 5px; margin-right: 5px;"></ion-icon> <span
+                  [ngClass]="{'disabled-status' : (status.event_status_id === selectedSOS?.currentStatus)}"
+                  style="font-size: 2vw" [ngStyle]="{'color': status.color_hex}">{{status.status_description | translate}}</span>
+              </ion-label>
+              <!-- changed from 22 to 12 for motorolla-->
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+
+      </ion-card>
+
+      <ion-row class="button-group-5 height:10vh">
+        <ion-col col-12>
+          <ion-button class="action-buttons" (click)="openDetailsModal(selectedSOS.additionaldetails)"
+            style="--background: #f09001;">
+            <ion-icon class="cfs-details-icons" name="information-circle"></ion-icon> {{'Info' | translate}}
+          </ion-button>
+          <ion-button class="action-buttons" (click)="openAtachmentsModal(selectedSOS.image)"
+            style="--background: #3598db">
+            <ion-icon class="cfs-details-icons" name="attach"></ion-icon> {{ 'Files' | translate}}
+          </ion-button>
+          <ion-button class="action-buttons" (click)="showMapPage(selectedSOS);" style="--background: #2f72c3">
+            <ion-icon name="map" class="cfs-details-icons"></ion-icon> {{'Map' | translate}}
+          </ion-button>
+          <ion-button class="action-buttons" (click)="loadATRPage(selectedSOS)" style="--background: #ef3d56">
+            <ion-icon name="aperture" class="cfs-details-icons"></ion-icon> {{'ATR' | translate}}
+          </ion-button>
+          <ion-button class="action-buttons"
+            (click)="updateCFS(selectedSOS.basicid, selectedSOS.eventid, selectedSOS.statusid, selectedSOS.fromUserType,selectedSOS.cityId,selectedSOS.cityZoneId,selectedSOS.deptId,selectedSOS.psId,selectedSOS.fromUserName,selectedSOS.priority);"
+            style="--background: #49ad08"
+            [disabled]="selectedSOS?.statusid === 1 || selectedSOS?.statusid === selectedSOS?.currentStatus">
+            <ion-icon class="cfs-details-icons" name="checkmark-circle"></ion-icon> {{'Update' | translate}}
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </div>
+  </ion-grid>
+</ion-content>

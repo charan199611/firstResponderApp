@@ -1,0 +1,91 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{'Log In' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+
+    <div class="login-page">
+      <h3 class="login-header text-center"><strong>trinity</strong><span class="text-white" style="color: red;font-weight: bold;">RESPOND   </span><span class="header-text">FIRST </span><span
+          class="text-white header-text">RESPONDER </span><span
+          class="text-white header-text">APP</span></h3>
+
+      
+        <div class="login-circul text-xs-center" (click)="openSettingPage()">
+          <img src="assets/img/logo/Logo-Cairo.png">
+        </div>
+
+        <div class="main-login-contain">
+
+        <div class="login-form">
+          <form #form="ngForm" novalidate="novalidate" id="form-validation" method="post" (ngSubmit)="checkLogin(form)">
+            <div class="login_input">
+              <span class="login-right-icon">
+                <ion-icon name="person-outline"></ion-icon>
+              </span>
+              <input class="login-form-border form-control" id="userName" name="userName" placeholder="{{'Enter Username' | translate }}"
+                type="text" [(ngModel)]="loginUser.loginName" required>
+            
+              <!-- <p *ngIf="form.userName">Username reuired</p>  -->
+            </div>
+            <div class="login_input">
+              <span class="login-right-icon">
+                <ion-icon name="key-outline"></ion-icon>
+              </span>
+              <input class="login-form-border form-control" id="password" name="password" placeholder="{{'Enter Password' | translate}}"
+                type="password" [(ngModel)]="loginUser.password" required>
+             
+              <!-- <p *ngIf="password.errors">Password reuired</p> -->
+            </div>
+
+
+
+            <div *ngIf="errorMessage">
+
+
+              <p style="color: #FF0000;text-align: justify; ">*{{errorMessage | translate}}</p>
+            </div>
+
+           
+
+            <div class="login_checkbox">
+              <input id="checkbox" type="checkbox" [(ngModel)]="myCheck" name="myCheck" checked>
+              <span class="login-form-forntsize">{{ 'Remember Me' | translate }}</span>
+
+            </div>
+
+            <div >
+              <ion-radio-group class="form-control" (ionChange)="radioGroupLanguageChange($event)" [(ngModel)]="selectLanguage"  id="selectLanguage" name="selectLanguage">
+              
+            
+                <ion-row>
+                  <ion-col>
+                <ion-item lines="none">
+                  <ion-radio value="en" [disabled]="disabledStatus"></ion-radio>
+                  <ion-label style="padding-left:10%;">{{'English' | translate}}</ion-label>
+                </ion-item>
+              </ion-col>
+              <ion-col>
+            
+                <ion-item lines="none">
+                  <ion-radio value="arb" [disabled]="disabledStatus"></ion-radio>
+                  <ion-label style="padding-left:10%;">{{'Arabic' | translate}}</ion-label>
+                  
+                </ion-item>
+              </ion-col>
+              </ion-row>
+            
+                </ion-radio-group>
+              </div>
+            <button type="submit" [ngStyle]="{'background-color': buttonColor}" class="btn btn-primary btn-login">
+              {{'LOG IN' | translate }}</button>
+          </form>
+         
+        </div>
+      </div>
+    </div>
+
+  </ion-grid>
+</ion-content>

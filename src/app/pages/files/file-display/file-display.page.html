@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{'File Display' | translate}}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <div slot="start" class="ion-title-img">
+			<img src="assets/img/logo/Logo-Cairo.png" alt="">
+		  </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div *ngIf="showimage" style="text-align: center;" >
+
+
+    <img style="width: 70%;height: 70%; text-align: center" src={{mediaImage}}/>
+
+  </div>
+  <div *ngIf="showVideo" style="text-align: center;" >
+
+    <video width="70%" height="70%"  controls >
+      <source src={{mediaVideo}} type="video/mp4">
+    </video>
+  
+  </div>
+  <div *ngIf="showPdf">
+
+    <section id="viewer">
+ 
+      <simple-pdf-viewer #pdfViewer src={{mediaPdf}}></simple-pdf-viewer>
+  </section>
+  </div>
+  <div *ngIf="showAudio" style="text-align: center;">
+ 
+      <audio controls>
+        <source src={{mediaAudio}} type="audio/mpeg">
+      </audio>
+ 
+  </div>
+
+  <div *ngIf="showExcel" style="text-align: center;">
+ 
+    <audio controls>
+      <source src={{mediaExcel}} type="audio/mpeg">
+    </audio>
+
+</div>
+
+  
+
+</ion-content>

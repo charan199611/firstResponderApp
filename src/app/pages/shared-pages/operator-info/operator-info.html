@@ -1,0 +1,26 @@
+<div theme class="background-theme">
+  <ion-row class="header" class="flio-bg">
+
+    <ion-col size="12" class="modal-title">
+      <ion-toolbar>
+        <ion-title>{{'Operator Info' | translate}} <ion-icon style="float: right;margin: 1%;margin-left: 7%"
+            name="information-circle-outline"></ion-icon>
+        </ion-title>
+      </ion-toolbar>
+    </ion-col>
+
+  </ion-row>
+
+  <div class="text-content">
+    <ion-row>
+      <ion-col size="12">
+        <p style="float: left;">{{'UserName' | translate}} : {{cfsData?.fromUserName == null ? 'NA' : cfsData.fromUserName}}</p>
+      </ion-col>
+      <ion-col size="12">
+        <p style="float: left;">{{'Station Name' | translate}} : {{cfsData.station == null ? 'NA' : cfsData.station}}</p>
+      </ion-col>
+    </ion-row>
+  </div>
+
+
+</div>

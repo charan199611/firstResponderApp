@@ -1,0 +1,84 @@
+
+		p,.label{
+			font-size: 1.5em;		
+		}
+
+		.button-text{
+			font-size: 2em;
+		
+		}
+		.header-title{
+		font-size: 20px !important;
+	}
+	// .header-logo {
+    // height: 28px !important;
+	// }
+		.heading{
+		font-size: 2em;
+	}
+   .button-large-md{
+		font-size: 1.0rem !important;	
+	}
+	ion-item {
+        --background: transparent !important;
+    }
+
+    .radio-style-1 ion-item {
+		display: inline-block;
+        float: left;
+		width: 46%;
+		font-weight: bold;
+	}
+	
+	.radio-style-1 .radio-md {
+		display: inline-block;
+        float: left;
+		margin: 17px 15px 15px 5px !important;
+		font-size: 15px;
+	}
+
+    ion-input, ion-select, ion-textarea {
+        --background: rgba(255, 255, 255, 0.2);
+        border: solid 1px #000;
+		width: 100%;
+        border-radius: 5px;
+        color: #fff;
+        font-size: 18px !important;
+    }
+
+    .input-map-pointer {
+        position: absolute;
+        right: 0;
+        background: #ddd;
+        padding: 5px;
+        font-size: 18px;
+    }
+
+    ion-label {
+        color: #fff;
+        font-size: 16px !important;
+        font-weight: bold;
+    }
+    
+
+
+	  .div_size{
+    height: 51px !important;
+    }
+    .card-md {
+      background: rgba(0, 0, 0, 0.5);
+    //  max-height: 92%;
+  width: calc(100% - 20px);
+  border-radius: 20px;
+  font-size: 1.4rem;
+  background: #fff;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    }
+    .card-content-md {
+  padding: 10px 16px 13px 16px !important;
+  font-size: 1.4rem;
+  line-height: 1.5;
+}
+.scroll-content {
+	padding-bottom: 0px !important;
+}

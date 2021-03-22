@@ -1,0 +1,194 @@
+<ion-header style="height: 8%;">
+  <!--  <ion-toolbar>
+    <ion-title>home</ion-title>
+    <ion-icon name="more"></ion-icon>
+
+
+    <ion-button slot="primary"  color="light"
+      (click)="presentToolTips($event)" >
+      <ion-icon name="more"></ion-icon>
+
+    </ion-button>
+  </ion-toolbar> -->
+
+  <ion-toolbar>
+
+    <ion-buttons slot="primary">
+      <ion-button (click)="presentToolTips($event)">
+        <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <div slot="start" class="ion-title-img">
+      <img src="assets/img/logo/Logo-Cairo.png" alt="">
+    </div>
+
+    <ion-title>{{'Home' | translate}}</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="height: 90%;">
+  <ion-row>
+
+    <ion-col size="4" class="padding1px">
+      <button class="home-menu" (click)='loadCFSPage()'>
+        <span
+          class="notification-span">{{getCfsCount(totalCFSCount)}}</span>
+        <span class="img-block"><img src="assets/img/home-new/cfs.png" alt="CFS"></span>
+        <span class="button-title"><span>{{'CFS' | translate}}</span></span>
+      </button>
+    </ion-col>
+
+    <ion-col size="4" class="padding1px">
+      <button class="home-menu" (click)='loadSOSPage()'>
+        <span
+        class="notification-span">{{getCfsCount(totalSOSCount)}}</span>
+        <span class="img-block"><img src="assets/img/home-new/sos.png" alt="SOS"></span>
+        <span class="button-title"><span>{{'SOS' | translate}}</span></span>
+      </button>
+    </ion-col>
+
+    <ion-col size="4" class="padding1px">
+      <button class="home-menu" (click)='loadCQPage()'>
+        <span
+        class="notification-span">{{totalCQCount}}</span>
+        <span class="img-block"><img src="assets/img/home-new/notification.png" alt="C Q"></span>
+        <span class="button-title"><span>{{'Alert Message' | translate}}</span></span>
+      </button>
+
+    </ion-col>
+
+    <!-- <ion-col size="4" class="padding1px">
+      <button class="home-menu" (click)='loadMissingPerson()'>
+
+        <span class="img-block"><img src="assets/img/home/missing.png" alt="C Q"></span>
+        <span class="button-title"><span>{{'Missing Person' | translate}}</span></span>
+      </button>
+
+    </ion-col>
+
+
+    <ion-col size="4" class="padding1px">
+      <button class="home-menu" (click)='loadVehicleLost()'>
+
+        <span class="img-block"><img src="assets/img/home/lost.png" alt="C Q"></span>
+        <span class="button-title"><span>{{'Lost/Found Vehicle' | translate}}</span></span>
+      </button>
+
+    </ion-col>
+
+    <ion-col size="4" class="padding1px">
+      <button class="home-menu" (click)='loadUnidentifiedBody()'>
+
+        <span class="img-block"><img src="assets/img/home/funeral.png" alt="C Q"></span>
+        <span class="button-title"><span>{{'Unidentified Dead Bodies' | translate}}</span></span>
+      </button>
+
+    </ion-col> -->
+
+
+
+
+    <!--<ion-col col-4 col-md-4 col-sm-4 col-lg-4 class="padding1px">
+			<button class="home-menu" (click)='loadBoloPage()'>
+				<span class="img-block"><img src="assets/img/home/home-bolo.png" alt="BOLO"></span>
+				<span class="button-title"><span>BOLO</span></span>
+			</button>
+		</ion-col>-->
+
+    <ion-col size="4" class="padding1px">
+      <button class="home-menu" (click)='loadLocationPage()'>
+        <span class="img-block"><img src="assets/img/home-new/map.png" alt="Location"></span>
+        <span class="button-title"><span>{{'Location' | translate}}</span></span>
+      </button>
+    </ion-col>
+
+     <ion-col size="4" class="padding1px">
+      <button class="home-menu" (click)='loadLiveStreamPage()'>
+        <span class="img-block"><img src="assets/img/home-new/livestream.png" alt="Patrol"></span>
+        <span class="button-title"><span>{{'Live Stream' | translate}}</span></span>
+      </button>
+    </ion-col> 
+
+    <ion-col size="4" class="padding1px">
+      <button class="home-menu" (click)='loadIotIncident()'>
+        <span
+        class="notification-span">{{getCfsCount(totalIotCount)}}</span>
+        <span class="img-block"><img src="assets/img/home-new/network.png" alt="Patrol"></span>
+        <span class="button-title"><span>{{'IoT Incident' | translate}}</span></span>
+      </button>
+    </ion-col>
+
+
+
+
+    <ion-col size="4" class="padding1px">
+      <button class="home-menu" (click)='loadReportsPage()'>
+        <span class="img-block"><img src="assets/img/home-new/report.png" alt="Reports"></span>
+        <span class="button-title"><span>{{'Reports' | translate}}</span></span>
+      </button>
+    </ion-col>
+
+    <ion-col size="4" class="padding1px">
+			<button class="home-menu" (click)='loadPatrolPage()'>
+				<span class="img-block"><img src="assets/img/home-new/patrol.png" alt="Notification"></span>
+				<span class="button-title"><span>{{'Patrol' | translate}}</span></span>
+			</button>
+    </ion-col>
+    <ion-col size="4" class="padding1px">
+			<button class="home-menu" (click)='loadTaskPage()'>
+				<span class="img-block"><img src="assets/img/home-new/task.png" alt="Notification"></span>
+				<span class="button-title"><span>{{'Task' | translate}}</span></span>
+			</button>
+		</ion-col>
+
+    <ion-col size="4" class="padding1px">
+      <button class="home-menu" (click)='loadAttendancePage()'>
+        <span class="img-block"><img src="assets/img/home-new/attendance.png" alt="Reports"></span>
+        <span class="button-title"><span>{{'Attendance' | translate}}</span></span>
+      </button>
+    </ion-col>
+
+    <!--<ion-col col-4 col-md-4 col-sm-4 col-lg-4 class="padding1px">
+			<button class="home-menu" (click)='loadNotificationsPage()'>
+				<span class="img-block"><img src="assets/img/home/home-notification.png" alt="Notification"></span>
+				<span class="button-title"><span>NOTIFICATIONS</span></span>
+			</button>
+		</ion-col>-->
+
+    <!--<ion-col col-4 col-md-4 col-sm-4 col-lg-4 class="padding1px">
+			<button class="home-menu" (click)='loadAttendancePage()'>
+				<span class="img-block"><img src="assets/img/home/home-attendance.png" alt="Attendance"></span>
+				<span class="button-title"><span>CHECK IN</span></span>
+			</button>
+		</ion-col>-->
+
+
+
+
+
+
+  </ion-row>
+
+
+
+  <footer style="font-size: 1em;">
+    <ion-row>
+      <ion-col col-4 col-md-4 col-sm-4 col-lg-4 class="text-align">
+        {{'V' | translate}} {{appVersion}}
+      </ion-col>
+
+      <ion-col col-4 col-md-4 col-sm-4 col-lg-4 class="text-center text-align">
+        {{loginUser}}
+      </ion-col>
+
+      <ion-col col-4 col-md-4 col-sm-4 col-lg-4 text-right class="text-align">
+        <!-- <span [ngStyle]="{'color': getTrackingStatusColor()}"> -->
+<span>
+          {{trackingStatus | translate}}
+          <!-- <ion-icon name="compass"></ion-icon> {{getTrackingStatus()}} -->
+        </span>
+      </ion-col>
+    </ion-row>
+  </footer>
+</ion-content>

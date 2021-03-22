@@ -1,0 +1,77 @@
+<ion-header>
+	<ion-toolbar>
+
+		<ion-buttons slot="start">
+			<ion-button class="custom-back-button" (click)="backFunction()">
+				<ion-icon name="arrow-back"></ion-icon>
+			  </ion-button>
+
+			<!-- <ion-back-button></ion-back-button> -->
+		</ion-buttons>
+	
+		  <div slot="start" class="ion-title-img">
+			<img src="assets/img/logo/Logo-Cairo.png" alt="">
+		  </div>
+		<ion-title>{{'SOS event list' | translate}}</ion-title>
+
+	
+      <ion-buttons slot="end" >
+		<ion-button (click)="filterCfsList()">
+			<img style="width:74%" src="assets/icon/filter.png" alt="filter">
+		  </ion-button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+<ion-content>
+	<ion-col style="padding: 0; margin: 0;">
+		<div style="overflow: scroll;height:83vh">
+			<table class="table table-type-1 table-bordered table-striped">
+				<thead>
+					<tr>
+						<th>{{'S.No.' | translate}}</th>
+						<th>{{'SOS ID' | translate}}</th>
+						<th style="min-width: 110px !IMPORTANT;">{{'Time'| translate}}</th>
+						<th style="min-width: 106px !IMPORTANT;">{{'Event Type' | translate}}</th>
+						<th style="min-width: 106px !IMPORTANT;">{{'Location' | translate}}</th>
+						<th>{{'Status' | translate}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngIf="sosList.length === 0">
+						<td colspan="6" class="text-center">{{'No data found' | translate}}</td>
+					</tr>
+					<tr (click)="loadCFSDetails(sos.event_id, sos.unread, sos.basicid, sos.fromUserType)"
+						*ngFor="let sos of sosList; let i = index">
+						<td class="textcenter- row">{{i + 1}}</td>
+						<td class="text-center row">{{sos.event_id}}</td>
+						<td class="text-center row">{{sos.received_date_time}}</td>
+						<td class="text-center row">{{sos.incident_type}}</td>
+						<td class="text-center row">{{sos.distress_address}}</td>
+						<td class="text-bold text-center row" [ngStyle]="{'color': sos.color_hex}">{{sos.status}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</ion-col>
+
+	<!-- <ion-buttons> -->
+	<!-- <ion-button expand="block" color="light" full>A block button</ion-button> -->
+	<section>
+		
+
+	<ion-button size="large" class="buttonText" color="light" [ngClass]="{'active' : selectedTimePeriod == 1}"
+			(click)="fetchTodayCFSData();">
+			{{'Today'|translate}}</ion-button>
+		<ion-button size="large" class="buttonText" color="light" [ngClass]="{'active' : selectedTimePeriod == 2}"
+			(click)="fetch7DaysCFSData();">
+			{{'Last 7 Days'| translate}}</ion-button>
+		<ion-button size="large" class="buttonText" color="light" [ngClass]="{'active' : selectedTimePeriod == 3}"
+			(click)="fetch30DaysCFSData();">{{'Last 30 Days'|translate}}</ion-button>
+	</section>
+	<!-- </ion-buttons> -->
+	<!-- <section>
+		<ion-button size="large" color="light">Light</ion-button>
+        <ion-button size="large" color="medium">Medium</ion-button>
+        <ion-button size="large" color="dark">Dark</ion-button>
+      </section> -->
+</ion-content>

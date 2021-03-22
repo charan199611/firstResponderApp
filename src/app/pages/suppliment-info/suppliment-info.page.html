@@ -1,0 +1,350 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <div slot="start" class="ion-title-img">
+      <img src="assets/img/logo/Logo-Cairo.png" alt="">
+    </div>
+    <ion-title>{{'Suppliment Info' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-segment [(ngModel)]="showtype" (ionChange)="typeChanged()">
+   
+     <ion-segment-button value="LOCATION">
+     <ion-label>{{'Location' | translate}}</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="PERSON">
+     <ion-label>{{'Person' | translate}}</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="VEHICLE">
+      <ion-label>{{'Vehicle' | translate}}</ion-label>
+     </ion-segment-button>
+     <ion-segment-button value="OTHERS">
+      <ion-label>{{'Others' | translate}}</ion-label>
+     </ion-segment-button>
+  </ion-segment>
+
+  <div [ngSwitch]="showtype">
+
+    <div *ngSwitchCase="'OTHERS'">
+      <table class="table table-type-1 table-bordered table-striped" cellpadding="10">
+        <tbody>
+          <tr>
+            <td>
+              {{'Number of injuries' | translate}}
+         </td>
+         <td>
+          {{supplimentOthers?.injuries == undefined ? 'NA':supplimentOthers.injuries}}
+        </td>
+         </tr>
+         <tr>
+          <td>
+            {{'Number of deaths' | translate}}
+       </td>
+       <td>
+        {{supplimentOthers?.deaths == undefined ? 'NA':supplimentOthers.deaths}}
+      </td>
+       </tr>
+         </tbody>
+         </table>
+    </div>
+
+  <div style="overflow:auto" *ngSwitchCase="'LOCATION'">
+    <table class="table table-type-1 table-bordered table-striped" cellpadding="10">
+      <tbody>
+        <tr>
+          <td>
+            {{'Hazardous' | translate}}
+       </td>
+  <td>
+    {{supplimentLocation?.hazardous == undefined ? 'NA':supplimentLocation.hazardous}}
+  </td>
+  </tr>
+  <tr>
+    <td>
+      {{'Caution' | translate}}
+</td>
+<td>
+  {{supplimentLocation?.remarks == undefined ? 'NA':supplimentLocation.remarks}}
+</td>
+</tr>
+
+</tbody>
+</table>
+
+  </div> 
+  <div *ngSwitchCase="'PERSON'">
+    <table class="table table-type-1 table-bordered table-striped" cellpadding="10">
+      <tbody>
+        <tr>
+          <td>
+          {{'Suspect/Victim' | translate}}
+          </td>
+          <td>
+          {{supplimentPerson?.personInvolvedType == undefined ? 'NA':supplimentPerson.personInvolvedType}}
+          </td>
+          </tr>
+
+          <tr>
+            <td>
+            {{'Race' | translate}}
+            </td>
+            <td>
+            {{supplimentPerson?.race == undefined ? 'NA':supplimentPerson.race}}
+            </td>
+            </tr>
+
+            <tr>
+              <td>
+              {{'Gender' | translate}}
+              </td>
+              <td>
+              {{supplimentPerson?.gender == undefined ? 'NA':supplimentPerson.gender}}
+              </td>
+              </tr>
+
+              <tr>
+                <td>
+                {{ 'Age' | translate}}
+              </td>
+              <td>
+              {{supplimentPerson?.age == undefined ? 'NA':supplimentPerson.age}}
+              </td>
+              </tr>
+
+              <tr>
+                <td>
+              {{'Clothing' | translate}}
+                </td>
+                <td>
+                {{supplimentPerson?.clothing == undefined ? 'NA':supplimentPerson.clothing}}
+                </td>
+                </tr>
+
+                <tr>
+                  <td>
+                 {{ 'Demeanor' | translate}}
+                  </td>
+                  <td>
+                  {{supplimentPerson?.demeanor == undefined ? 'NA':supplimentPerson.demeanor}}
+                  </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                     {{'Date Of Birth' | translate}}
+                  </td>
+                  <td>
+                  {{supplimentPerson?.dob == undefined ? 'NA':supplimentPerson.dob}}
+                  </td>
+                  </tr>
+        <tr>
+          <td>
+           {{'Name' | translate}}
+       </td>
+  <td>
+    {{supplimentPerson?.name == undefined ? 'NA':supplimentPerson.name}}
+  </td>
+  </tr>
+
+  <tr>
+    <td>
+      {{'Complexion' | translate}}
+    </td>
+    <td>
+    {{supplimentPerson?.color == undefined ? 'NA':supplimentPerson.color}}
+    </td>
+    </tr>
+
+  <tr>
+    <td>
+      {{'Height' | translate}}
+</td>
+<td>
+  {{supplimentPerson?.height == undefined ? 'NA':supplimentPerson.height}}
+</td>
+</tr>
+
+<tr>
+  <td>
+  {{'Weight' | translate}}
+  </td>
+  <td>
+  {{supplimentPerson?.weight == undefined ? 'NA':supplimentPerson.weight}}
+  </td>
+  </tr>
+  <tr>
+    <td>
+    {{'Hair Color' | translate}}
+    </td>
+    <td>
+    {{supplimentPerson?.hair == undefined ? 'NA':supplimentPerson.hair}}
+    </td>
+    </tr>
+
+  <tr>
+    <td>
+    {{'Eye Color' | translate}}
+    </td>
+    <td>
+    {{supplimentPerson?.eye == undefined ? 'NA':supplimentPerson.eye}}
+    </td>
+    </tr>
+   
+
+    <tr>
+      <td>
+      {{'Relationship' | translate}}
+      </td>
+      <td>
+      {{supplimentPerson?.personRelationship == undefined ? 'NA':supplimentPerson.personRelationship}}
+      </td>
+      </tr>
+<tr>
+<td>
+{{'Contact Number' | translate}}
+</td>
+<td>
+{{supplimentPerson?.contact == undefined ? 'NA':supplimentPerson.contact}}
+</td>
+</tr>
+
+
+<tr>
+<td>
+{{'Other' | translate}}
+</td>
+<td>
+{{supplimentPerson?.remarks == undefined ? 'NA':supplimentPerson.remarks}}
+</td>
+</tr>
+
+<tr>
+<td>
+{{'Address' | translate}}
+</td>
+<td>
+{{supplimentPerson?.personAddress == undefined ? 'NA':supplimentPerson.personAddress}}
+</td>
+</tr>
+
+
+
+
+</tbody>
+</table> 
+  </div>
+
+  <div *ngSwitchCase="'VEHICLE'">
+    <table class="table table-type-1 table-bordered table-striped" cellpadding="10">
+      <tbody>
+        <tr>
+          <td>
+          {{'Vehicle Type' | translate}}
+          </td>
+          <td>
+          {{supplimentVehicle?.vehicleType == undefined ? 'NA':supplimentVehicle.vehicleType}}
+          </td>
+          </tr>
+          <tr>
+            <td>
+             {{'Registration Plate' | translate}}
+         </td>
+    <td>
+      {{supplimentVehicle?.vehicleNumber == undefined ? 'NA':supplimentVehicle.vehicleNumber}}
+    </td>
+    </tr>
+    <tr>
+      <td>
+        {{'Registration Plate State' | translate}}
+      </td>
+      <td>
+      {{supplimentVehicle?.vehicleRegState == undefined ? 'NA':supplimentVehicle.vehicleRegState}}
+      </td>
+      </tr>
+
+      <tr>
+        <td>
+        {{'Registration Plate Type' | translate}}
+        </td>
+        <td>
+        {{supplimentVehicle?.vehicleRegPlateType == undefined ? 'NA':supplimentVehicle.vehicleRegPlateType}}
+        </td>
+        </tr>
+        <tr>
+          <td>
+           {{'Vehicle Color' | translate}}
+        </td>
+        <td>
+        {{supplimentVehicle?.vehicleColor == undefined ? 'NA':supplimentVehicle.vehicleColor}}
+        </td>
+        </tr>
+        <tr>
+          <td>
+          {{'Registration Date' | translate}}
+          </td>
+          <td>
+          {{supplimentVehicle?.vehicleMakeDate == undefined ? 'NA':supplimentVehicle.vehicleMakeDate}}
+          </td>
+          </tr>
+
+  <tr>
+    <td>
+      {{'Model' | translate}}
+</td>
+<td>
+  {{supplimentVehicle?.vehicleModel == undefined ? 'NA':supplimentVehicle.vehicleModel}}
+</td>
+</tr>
+
+
+
+<tr>
+<td>
+{{'Vehicle Make' | translate}}
+</td>
+<td>
+{{supplimentVehicle?.vehicleMake == undefined ? 'NA':supplimentVehicle.vehicleMake}}
+</td>
+</tr>
+
+
+
+<tr>
+  <td>
+   {{'Registration Expiry Date' | translate}}
+</td>
+<td>
+{{supplimentVehicle?.vehicleRegExpDate == undefined ? 'NA':supplimentVehicle.vehicleRegExpDate}}
+</td>
+</tr>
+<tr>
+<td>
+{{'Vehicle Identification Number' | translate}}
+</td>
+<td>
+{{supplimentVehicle?.vehicleIdentification == undefined ? 'NA':supplimentVehicle.vehicleIdentification}}
+</td>
+</tr>
+<tr>
+<td>
+{{'Remarks' | translate}}
+</td>
+<td>
+{{supplimentVehicle?.remarks == undefined ? 'NA':supplimentVehicle.remarks}}
+</td>
+</tr>
+
+
+</tbody>
+</table>
+   </div>
+</div>
+
+
+
+</ion-content>

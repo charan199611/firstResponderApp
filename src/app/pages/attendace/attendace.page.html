@@ -1,0 +1,113 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <div slot="start" class="ion-title-img">
+      <img src="assets/img/logo/Logo-Cairo.png" alt="">
+    </div>
+    <ion-title>{{'Attendance' | translate}} </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+
+  <ion-card-content>
+
+    <form name="newAttendance" (ngSubmit)="updateAttendance()">
+    
+
+      <ion-row>
+       <ion-col size="4" class="ioncol-text">
+        {{'Officer Name' | translate}}: 
+       </ion-col>
+        <ion-col col-6>
+          <div class="login-form-border">
+          <ion-item>
+            <ion-input  [(ngModel)]="newAttendance.officername" type="text" placeholder="{{'Enter Officer Name' | translate}}"
+              name="officername" limit-to='15'></ion-input>
+
+          </ion-item>
+          </div>
+        </ion-col>
+
+
+
+      </ion-row>
+
+      <ion-row>
+
+
+<ion-col size="4" class="ioncol-text">
+{{'Officer Id' | translate}}:
+</ion-col>
+
+        <ion-col col-6>
+          <div class="login-form-border">
+          <ion-item>
+            <ion-input  name="officerId" [(ngModel)]="newAttendance.officerId" type="number"
+              placeholder="{{'Enter Officer Id' | translate}}" limit-to='15'></ion-input>
+          </ion-item>
+        </div>
+        </ion-col>
+
+      </ion-row>
+
+      <ion-row>
+
+<ion-col class="ioncol-text" size="4">
+  
+    {{'Rank' | translate}}: 
+  
+</ion-col>
+        <ion-col> 
+        <div class="login-form-border">
+            <ion-label  style="display: none">{{'Select Designation' | translate}}</ion-label>
+            <ion-select title="{{'Select Designation' | translate}}" style="width: fit-content;"  okText="{{'Okay' | translate}}" cancelText="{{'Dismiss' | translate}}" [(ngModel)]="newAttendance.designation" name="designation" placeholder="{{'Select Designation' | translate}}">
+              <ion-select-option  *ngFor="let option of designationData" [value]="option.designation">{{option.designation | translate}}</ion-select-option>
+            </ion-select>
+          </div>
+         
+        </ion-col>
+
+      </ion-row>
+
+
+      <ion-row>
+<ion-col class="ioncol-text" size="4">
+ 
+    {{'Contact Info' | translate}}:
+  
+</ion-col>
+        <ion-col col-12>
+          <div class="login-form-border">
+          <ion-item>
+            <ion-input  name="phoneNo" [(ngModel)]="newAttendance.phoneNo" type="number"
+              placeholder="{{'Enter Contact Info' | translate}}" limit-to='10'></ion-input>
+          </ion-item>
+          </div>
+        </ion-col>
+      
+
+      </ion-row>
+
+     
+
+     
+      <ion-row>
+<!-- 
+        <button type="submit" [ngStyle]="{'background-color': buttonColor}" class="btn btn-primary btn-login">
+          {{'LOG IN' | translate }}</button>
+        <button ion-button full style="width: 97%;margin: auto;">{{'Create CFS' | translate}}</button> -->
+      
+    
+        <ion-button type="submit" full class="buttonColor shadow-margin">{{'Submit' | translate}}</ion-button>
+ 
+      </ion-row>
+
+    </form>
+
+  </ion-card-content>
+</ion-card>
+</ion-content>
