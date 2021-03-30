@@ -6,6 +6,8 @@ const BrowserWindow = electron.BrowserWindow
 const path = require('path')
 const url = require('url')
 const { setup: setupPushReceiver } = require('electron-push-receiver');
+var screenElectron = electron.screen;
+var ffmpeg = require('ffmpeg');
 //process.env.FLUENTFFMPEG_COV= false;
 //module.exports = process.env.FLUENTFFMPEG_COV ? require('./lib-cov/fluent-ffmpeg') : require('./lib/fluent-ffmpeg');
 process.env.GOOGLE_API_KEY = 'AIzaSyBX3VtNul89lPrwsoUO5pEU6UJfsMwBsCM'
@@ -31,15 +33,20 @@ serve = args.some(val => val === '--serve')
 
 function createWindow() {
   debugger
+  const mainScreen = screenElectron.getPrimaryDisplay();
   win = new BrowserWindow({
-    width: 1800,
-    height: 1200,
+   // width: 1800,
+    //height: 1200,
+    width: mainScreen.size.width,
+    height: mainScreen.size.height,
     center: true,
     icon: path.join(__dirname, './src/assets/icon/police-icon.png'),
     webPreferences: {
       nodeIntegration: true
     }
   })
+ // win.maximize();
+//win.show();
 
   win.once('ready-to-show', () => {
     setupPushReceiver(win.webContents);
@@ -187,18 +194,18 @@ ipcMain.on('restart_app', () => {
 
 
 
-// autoUpdater.on('update-available', () => {
-//   win.webContents.send('update_available');
-// });
-// autoUpdater.on('update-downloaded', () => {
-//   win.webContents.send('update_downloaded');
-// })
-// autoUpdater.on('download-progress', (progressObj) => {
-//   console.log("download-progress");
-//   let log_message = "Download speed: " + progressObj.bytesPerSecond;
-//   log_message = log_message + ' - Downloaded ' + progressObj.percent + '%';
-//   log_message = log_message + ' (' + progressObj.transferred + "/" + progressObj.total + ')';
-//   console.log("log message", log_message);
-//   win.webContents.send('update_progress', { progress: Math.round(progressObj.percent) + '%' });
+autoUpdater.on('update-available', () => {
+  win.webContents.send('update_available');
+});
+autoUpdater.on('update-downloaded', () => {
+  win.webContents.send('update_downloaded');
+})
+autoUpdater.on('download-progress', (progressObj) => {
+  console.log("download-progress");
+  let log_message = "Download speed: " + progressObj.bytesPerSecond;
+  log_message = log_message + ' - Downloaded ' + progressObj.percent + '%';
+  log_message = log_message + ' (' + progressObj.transferred + "/" + progressObj.total + ')';
+  console.log("log message", log_message);
+  win.webContents.send('update_progress', { progress: Math.round(progressObj.percent) + '%' });
   
-// })
+})

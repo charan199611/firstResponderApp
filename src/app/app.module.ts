@@ -47,7 +47,6 @@ import { ChartsModule, ThemeService } from 'ng2-charts';
 import { ShowPoiPage } from './pages/show-poi/show-poi.page';
 
 
-
 export function HttpLoaderFactory(http: HttpClient) {
   //return new TranslateHttpLoader(http, "../www/assets/i18n/", ".json");
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -55,8 +54,8 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 
 @NgModule({
-  declarations: [AppComponent, LoginPage, LoginodometerPage,HomePage,AtrPage,LiveStreamPage,ConfigrationsPage,OperatorInfoPage,TooltipPage,LogoutodometerPage,LocationservicePage,LocationServicesMapPage,AudioRecorderPage, SopInfoPage, MapPage,
-    NearbyresourcePage, NearbyeventPage, AttendacePage, PatrolchartPage, TaskPage, ReportPage, ShowPoiPage
+  declarations: [AppComponent,LoginPage, LoginodometerPage,HomePage,AtrPage,LiveStreamPage,ConfigrationsPage,OperatorInfoPage,TooltipPage,LogoutodometerPage,LocationservicePage,LocationServicesMapPage,AudioRecorderPage, SopInfoPage, MapPage,
+    NearbyresourcePage, NearbyeventPage, AttendacePage, PatrolchartPage, TaskPage, ReportPage, ShowPoiPage,
   ],
   entryComponents: [AudioRecorderPage,TooltipPage,OperatorInfoPage],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule, HttpClientModule,SharedPagesPageModule, SimplePdfViewerModule,ChartsModule,
@@ -79,8 +78,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     CommonServices,
     ElectronService,
     ThemeService,
- 
-
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

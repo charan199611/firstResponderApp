@@ -8,6 +8,7 @@
 		  </div>
     <ion-title>{{'Live stream' | translate}}</ion-title>
   </ion-toolbar>
+  <link href="https://vjs.zencdn.net/7.11.4/video-js.css" rel="stylesheet" />
 </ion-header>
 
 <ion-content class="main-view">
@@ -17,21 +18,29 @@
     </iframe>
   </div> -->
 
-  <div id="myVideo" style="height: 100%;">
-    <p> Your browser does not support the VIDEO tag and/or RTP streams.1</p>
-    <video src="rtsp://administrator:P@$$w0rd@10.100.0.40:10.100.0.40/v1/system/cameras/streaming/10/1/live_stream?auth_acc_type=LDAPUser;add_info=NULL">
-      Your browser does not support the VIDEO tag and/or RTP streams.
-    </video>
-    <p> Your browser does not support the VIDEO tag and/or RTP streams.2</p>
-  </div>
-  <p> Your browser does not support the VIDEO tag and/or RTP streams.3</p>
-  <video src="rtsp://administrator:P@$$w0rd@10.100.0.40:10.100.0.40/v1/system/cameras/streaming/10/1/live_stream?auth_acc_type=LDAPUser;add_info=NULL">
-    Your browser does not support the VIDEO tag and/or RTP streams.
-  </video>
- 
+  <video
+  id="my-video"
+  class="video-js"
+  controls
+  preload="auto"
+  width="640"
+  height="264"
+  poster="MY_VIDEO_POSTER.jpg"
+  data-setup="{}"
+>
+ <!--  <source src="rtsp://freja.hiof.no:1935/rtplive/_definst_/hessdalen03.stream" type="video/mp4" /> -->
+  <source src="rtsp://freja.hiof.no:1935/rtplive/_definst_/hessdalen03.stream" type="rtsp/flv" />
+  <p class="vjs-no-js">
+    To view this video please enable JavaScript, and consider upgrading to a
+    web browser that
+    <a href="https://videojs.com/html5-video-support/" target="_blank"
+      >supports HTML5 video</a
+    >
+  </p>
+</video>
 
-  <button ion-button full (click)=openLiveStream()>
-    <ion-icon ios="ios-eye" md="md-eye"></ion-icon> VIEW
-  </button>
+<script src="https://vjs.zencdn.net/7.11.4/video.min.js"></script>
+
+<!-- <ion-button full color="primary" (click)="openLiveStream()"></ion-button> -->
 
 </ion-content>
